@@ -1,0 +1,2915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India's Pollution Crisis — Forensic Research Study 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --navy: #0B1929;
+    --navy-mid: #152742;
+    --navy-light: #1E3A5F;
+    --gold: #C4910A;
+    --gold-light: #E8B84B;
+    --gold-pale: #FDF3DC;
+    --critical: #B91C1C;
+    --critical-bg: #FEF2F2;
+    --severe: #C2410C;
+    --severe-bg: #FFF7ED;
+    --warning: #B45309;
+    --warning-bg: #FFFBEB;
+    --info: #1D4ED8;
+    --info-bg: #EFF6FF;
+    --success: #065F46;
+    --success-bg: #ECFDF5;
+    --paper: #FAFAF8;
+    --text: #1A1A2E;
+    --text-light: #4A4A6A;
+    --border: #D1D5DB;
+    --border-light: #E5E7EB;
+    --teal: #0F766E;
+    --teal-bg: #F0FDFA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    font-size: 11pt;
+    line-height: 1.7;
+    color: var(--text);
+    background: #E8E8E8;
+  }
+
+  /* PAGE WRAPPER */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 12px auto;
+    background: var(--paper);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    padding: 14mm 15mm 14mm 15mm;
+    position: relative;
+    page-break-after: always;
+  }
+
+  /* ===================== COVER PAGE ===================== */
+  .cover-page {
+    background: var(--navy);
+    padding: 0;
+    overflow: hidden;
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cover-top-bar {
+    background: var(--gold);
+    height: 6px;
+    width: 100%;
+  }
+
+  .cover-inner {
+    padding: 16mm 18mm;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cover-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18mm;
+  }
+
+  .cover-stamp {
+    border: 1px solid rgba(196, 145, 10, 0.5);
+    padding: 6px 12px;
+    color: var(--gold-light);
+    font-family: 'Source Code Pro', monospace;
+    font-size: 8pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .cover-doc-type {
+    color: rgba(255,255,255,0.45);
+    font-size: 8pt;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  .cover-hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cover-eyebrow {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 8pt;
+    color: var(--gold);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cover-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+    max-width: 60px;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 46pt;
+    line-height: 1.05;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .cover-title span {
+    color: var(--gold-light);
+  }
+
+  .cover-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16pt;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 8mm;
+    font-weight: 300;
+  }
+
+  .cover-desc {
+    font-size: 9pt;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+    max-width: 140mm;
+    border-left: 2px solid rgba(196,145,10,0.4);
+    padding-left: 12px;
+    margin-bottom: 10mm;
+  }
+
+  .cover-kpi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin-bottom: 10mm;
+  }
+
+  .cover-kpi {
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.04);
+    padding: 10px 12px;
+  }
+
+  .cover-kpi-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .cover-kpi-label {
+    font-size: 7.5pt;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cover-vol-banner {
+    background: rgba(196, 145, 10, 0.12);
+    border: 1px solid rgba(196, 145, 10, 0.25);
+    padding: 8px 12px;
+    margin-bottom: 8mm;
+  }
+
+  .cover-vol-label {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7pt;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .cover-vol-list {
+    font-size: 8pt;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+
+  .cover-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6mm;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 6mm;
+    margin-top: auto;
+  }
+
+  .cover-footer-block { }
+
+  .cover-footer-label {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7pt;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  .cover-footer-value {
+    font-size: 9pt;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+
+  .cover-bottom-bar {
+    background: rgba(255,255,255,0.06);
+    padding: 8px 18mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cover-bottom-text {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7pt;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ===================== DECLARATION PAGE ===================== */
+  .decl-header {
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 8px;
+    margin-bottom: 8mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .decl-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .decl-ref {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7.5pt;
+    color: var(--text-light);
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .decl-box {
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    margin-bottom: 5mm;
+    background: #FAFAFA;
+  }
+
+  .decl-box-title {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--navy);
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 5px;
+  }
+
+  .decl-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 4px 12px;
+    font-size: 9.5pt;
+  }
+
+  .decl-grid dt {
+    font-weight: 700;
+    color: var(--text-light);
+    font-size: 8.5pt;
+    padding-top: 1px;
+  }
+
+  .decl-grid dd {
+    color: var(--text);
+  }
+
+  .decl-signature-area {
+    margin-top: 6mm;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5mm;
+  }
+
+  .sig-block {
+    border-top: 1px solid var(--border);
+    padding-top: 5px;
+  }
+
+  .sig-label {
+    font-size: 8pt;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'Source Code Pro', monospace;
+  }
+
+  .sig-name {
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 12px;
+  }
+
+  /* ===================== INNER PAGE ELEMENTS ===================== */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 6px;
+    margin-bottom: 7mm;
+  }
+
+  .page-section-tag {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7pt;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .page-num {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7pt;
+    color: var(--text-light);
+  }
+
+  /* TOC */
+  .toc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8mm;
+    line-height: 1;
+  }
+
+  .toc-section {
+    margin-bottom: 4mm;
+  }
+
+  .toc-vol-header {
+    background: var(--navy);
+    color: white;
+    padding: 5px 10px;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1mm;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 10px;
+    font-size: 9.5pt;
+    border-bottom: 1px dotted var(--border-light);
+  }
+
+  .toc-item:hover { background: var(--gold-pale); }
+
+  .toc-item-text { color: var(--text); }
+
+  .toc-sub-item {
+    padding-left: 22px;
+    font-size: 8.5pt;
+    color: var(--text-light);
+  }
+
+  .toc-page {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 8pt;
+    color: var(--gold);
+    font-weight: 700;
+    white-space: nowrap;
+    margin-left: 8px;
+  }
+
+  /* HEADINGS */
+  h1.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28pt;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 5mm;
+  }
+
+  h1.section-title .eyebrow {
+    display: block;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 8pt;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 400;
+  }
+
+  h2.vol-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24pt;
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 3px;
+  }
+
+  .vol-banner {
+    background: var(--navy);
+    padding: 14px 16px;
+    margin-bottom: 6mm;
+    border-left: 5px solid var(--gold);
+  }
+
+  .vol-banner-num {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7.5pt;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .vol-banner-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+  }
+
+  h2.subsec {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17pt;
+    font-weight: 700;
+    color: var(--navy);
+    margin-top: 6mm;
+    margin-bottom: 3mm;
+    padding-bottom: 3px;
+    border-bottom: 1.5px solid var(--border-light);
+    line-height: 1.2;
+  }
+
+  h3.subsubsec {
+    font-family: 'Lato', sans-serif;
+    font-size: 10.5pt;
+    font-weight: 900;
+    color: var(--navy);
+    margin-top: 4mm;
+    margin-bottom: 2mm;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .section-num-tag {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold-light);
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7pt;
+    padding: 2px 7px;
+    letter-spacing: 0.1em;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  p {
+    margin-bottom: 3mm;
+    text-align: justify;
+    font-size: 9.5pt;
+    line-height: 1.7;
+  }
+
+  /* CALLOUT BOXES */
+  .box {
+    border-radius: 0;
+    padding: 10px 12px;
+    margin: 4mm 0;
+    font-size: 9pt;
+    line-height: 1.6;
+    position: relative;
+  }
+
+  .box::before {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+
+  .box-critical {
+    background: var(--critical-bg);
+    border-left: 4px solid var(--critical);
+    color: #7F1D1D;
+  }
+  .box-critical::before { content: '⚠ CRITICAL WARNING'; color: var(--critical); }
+
+  .box-warning {
+    background: var(--warning-bg);
+    border-left: 4px solid var(--warning);
+    color: #78350F;
+  }
+  .box-warning::before { content: '⚠ WARNING'; color: var(--warning); }
+
+  .box-info {
+    background: var(--info-bg);
+    border-left: 4px solid var(--info);
+    color: #1E3A8A;
+  }
+  .box-info::before { content: 'ℹ NOTE'; color: var(--info); }
+
+  .box-key {
+    background: var(--teal-bg);
+    border-left: 4px solid var(--teal);
+    color: #134E4A;
+  }
+  .box-key::before { content: '◈ KEY FINDING'; color: var(--teal); }
+
+  .box-snapshot {
+    background: var(--gold-pale);
+    border-left: 4px solid var(--gold);
+    color: #78350F;
+  }
+  .box-snapshot::before { content: '◉ SNAPSHOT'; color: var(--gold); }
+
+  .box-case {
+    background: #F5F3FF;
+    border-left: 4px solid #7C3AED;
+    color: #4C1D95;
+  }
+  .box-case::before { content: '▣ CASE STUDY'; color: #7C3AED; }
+
+  .box-data {
+    background: #F0F9FF;
+    border-left: 4px solid #0369A1;
+    color: #0C4A6E;
+  }
+  .box-data::before { content: '▶ DATA POINT'; color: #0369A1; }
+
+  .box-quote {
+    background: var(--navy);
+    color: rgba(255,255,255,0.85);
+    padding: 14px 16px;
+    margin: 5mm 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.6;
+    border-left: 4px solid var(--gold);
+  }
+
+  .box-quote .quote-attr {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7pt;
+    color: var(--gold);
+    font-style: normal;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+
+  /* STAT CARDS */
+  .stat-row {
+    display: grid;
+    gap: 3mm;
+    margin: 4mm 0;
+  }
+
+  .stat-row-3 { grid-template-columns: repeat(3, 1fr); }
+  .stat-row-4 { grid-template-columns: repeat(4, 1fr); }
+  .stat-row-2 { grid-template-columns: repeat(2, 1fr); }
+
+  .stat-card {
+    border: 1px solid var(--border);
+    padding: 10px 11px;
+    background: white;
+    text-align: center;
+  }
+
+  .stat-card-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24pt;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .stat-card-num.critical { color: var(--critical); }
+  .stat-card-num.severe { color: var(--severe); }
+  .stat-card-num.warning { color: var(--warning); }
+  .stat-card-num.teal { color: var(--teal); }
+
+  .stat-card-label {
+    font-size: 7.5pt;
+    color: var(--text-light);
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+  }
+
+  .stat-card-source {
+    font-size: 7pt;
+    color: var(--border);
+    margin-top: 2px;
+    font-family: 'Source Code Pro', monospace;
+  }
+
+  /* TABLES */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 3mm 0;
+    font-size: 8.5pt;
+  }
+
+  .data-table thead th {
+    background: var(--navy);
+    color: white;
+    padding: 7px 8px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .data-table thead th:last-child { border-right: none; }
+
+  .data-table tbody tr { border-bottom: 1px solid var(--border-light); }
+  .data-table tbody tr:nth-child(even) { background: rgba(0,0,0,0.015); }
+  .data-table tbody tr:hover { background: var(--gold-pale); }
+
+  .data-table td {
+    padding: 6px 8px;
+    vertical-align: top;
+    border-right: 1px solid var(--border-light);
+    line-height: 1.4;
+  }
+
+  .data-table td:last-child { border-right: none; }
+
+  .data-table td strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* STATUS BADGES */
+  .status {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 2px;
+    font-size: 7pt;
+    font-weight: 900;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-family: 'Source Code Pro', monospace;
+  }
+
+  .status-critical { background: var(--critical-bg); color: var(--critical); border: 1px solid var(--critical); }
+  .status-severe { background: var(--severe-bg); color: var(--severe); border: 1px solid var(--severe); }
+  .status-warning { background: var(--warning-bg); color: var(--warning); border: 1px solid var(--warning); }
+  .status-ok { background: var(--success-bg); color: var(--success); border: 1px solid var(--success); }
+
+  /* TREND */
+  .trend-up { color: var(--critical); font-weight: 700; }
+  .trend-dn { color: var(--critical); font-weight: 700; }
+  .trend-eq { color: var(--warning); font-weight: 700; }
+
+  /* CHART WRAPPER */
+  .chart-wrap {
+    margin: 4mm 0;
+    background: white;
+    border: 1px solid var(--border-light);
+    padding: 10px;
+  }
+
+  .chart-title {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--navy);
+    margin-bottom: 6px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .chart-source {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7pt;
+    color: var(--text-light);
+    margin-top: 5px;
+    text-align: right;
+  }
+
+  /* ABSTRACT HIGHLIGHT */
+  .abstract-lede {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.5;
+    margin-bottom: 5mm;
+    padding: 8px 0;
+    border-top: 2px solid var(--navy);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  /* SECTION DIVIDER */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6mm 0 4mm;
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .section-divider-text {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7pt;
+    color: var(--text-light);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* COLUMN LAYOUT */
+  .col-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5mm;
+  }
+
+  /* HIGHLIGHT INLINE */
+  .hl-red { color: var(--critical); font-weight: 700; }
+  .hl-orange { color: var(--severe); font-weight: 700; }
+  .hl-gold { color: var(--gold); font-weight: 700; }
+  .hl-teal { color: var(--teal); font-weight: 700; }
+  .hl-navy { color: var(--navy); font-weight: 700; }
+
+  /* LIST STYLES */
+  ul.styled {
+    padding-left: 16px;
+    margin: 2mm 0;
+  }
+
+  ul.styled li {
+    font-size: 9pt;
+    line-height: 1.6;
+    margin-bottom: 3px;
+    position: relative;
+  }
+
+  ul.styled li::marker { color: var(--gold); }
+
+  /* REFERENCE LIST */
+  .ref-item {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border-light);
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 8px;
+    font-size: 8.5pt;
+    line-height: 1.5;
+  }
+
+  .ref-item:nth-child(even) { background: rgba(0,0,0,0.015); }
+
+  .ref-num {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 8pt;
+    color: var(--gold);
+    font-weight: 700;
+    text-align: right;
+    padding-top: 1px;
+  }
+
+  .ref-content strong { color: var(--navy); }
+
+  /* REALITY BLOCK */
+  .reality-block {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    margin-bottom: 3mm;
+    position: relative;
+  }
+
+  .reality-num {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: var(--navy);
+    color: var(--gold-light);
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7.5pt;
+    padding: 2px 8px;
+    letter-spacing: 0.1em;
+  }
+
+  .reality-title {
+    font-weight: 900;
+    font-size: 9pt;
+    color: var(--navy);
+    margin-bottom: 4px;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .reality-body {
+    font-size: 8.5pt;
+    line-height: 1.6;
+    color: var(--text-light);
+  }
+
+  /* CONCLUSION BLOCK */
+  .conclusion-block {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    margin-bottom: 3mm;
+    position: relative;
+  }
+
+  .conclusion-num {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7.5pt;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
+
+  .conclusion-heading {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 9.5pt;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+
+  .conclusion-body {
+    font-size: 8.5pt;
+    line-height: 1.65;
+    color: var(--text);
+  }
+
+  /* PAGE FOOTER */
+  .page-footer {
+    position: absolute;
+    bottom: 8mm;
+    left: 15mm;
+    right: 15mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-light);
+    padding-top: 4px;
+  }
+
+  .footer-text {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7pt;
+    color: var(--text-light);
+    letter-spacing: 0.08em;
+  }
+
+  /* SECTION NAV STRIP */
+  .section-nav {
+    display: flex;
+    gap: 0;
+    margin-bottom: 5mm;
+    overflow: hidden;
+  }
+
+  .section-nav-item {
+    flex: 1;
+    background: var(--border-light);
+    height: 3px;
+  }
+
+  .section-nav-item.active { background: var(--gold); }
+  .section-nav-item.done { background: var(--navy); }
+
+  /* PHASE BOXES */
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3mm;
+    margin: 4mm 0;
+  }
+
+  .phase-box {
+    border-top: 3px solid var(--navy);
+    padding: 10px;
+    background: white;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--navy);
+  }
+
+  .phase-box.phase-2 { border-top-color: var(--gold); }
+  .phase-box.phase-3 { border-top-color: var(--teal); }
+
+  .phase-label {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7pt;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .phase-title {
+    font-weight: 900;
+    font-size: 8.5pt;
+    color: var(--navy);
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+
+  .phase-body {
+    font-size: 8pt;
+    line-height: 1.55;
+    color: var(--text-light);
+  }
+
+  /* ABSTRACT */
+  .abstract-box {
+    background: var(--navy);
+    color: rgba(255,255,255,0.85);
+    padding: 12px 14px;
+    margin-bottom: 5mm;
+  }
+
+  .abstract-label {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 7pt;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .abstract-text {
+    font-size: 9pt;
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .abstract-keywords {
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-size: 7.5pt;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .abstract-keywords strong { color: var(--gold); }
+
+  /* MONITORING TABLE SECTIONS */
+  .monitor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+    margin: 3mm 0;
+  }
+
+  .monitor-card {
+    border: 1px solid var(--border);
+    padding: 9px 10px;
+  }
+
+  .monitor-card-title {
+    font-weight: 900;
+    font-size: 8pt;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .monitor-card-body {
+    font-size: 8pt;
+    line-height: 1.55;
+    color: var(--text);
+  }
+
+  /* PRINT STYLES */
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========================================================
+     COVER PAGE
+     ======================================================== -->
+<div class="page cover-page">
+  <div class="cover-top-bar"></div>
+  <div class="cover-inner">
+    <div class="cover-meta-row">
+      <div class="cover-stamp">FORENSIC · OBSERVATIONAL · ANALYTICAL</div>
+      <div class="cover-doc-type">
+        FORENSIC RESEARCH MASTER DOCUMENT<br>
+        MARCH 2026 · VERSION v1.0<br>
+        CLASSIFICATION: OBSERVATIONAL &amp; ANALYTICAL
+      </div>
+    </div>
+
+    <div class="cover-hero">
+      <div class="cover-eyebrow">India Pollution Forensic Research Study 2026</div>
+      <div class="cover-title">India's<br><span>Pollution</span><br>Crisis</div>
+      <div class="cover-subtitle">A Forensic DNA Analysis · 2026 – 2050</div>
+      <div class="cover-desc">
+        A Six-Volume Forensic Investigation into the Origin Matrix, Present Contamination, Multi-Sectoral Impact, Compound Risk, Future Trajectories, and Analytical Infrastructure of India's Environmental Crisis · 2026–2050
+      </div>
+
+      <div class="cover-kpi-row">
+        <div class="cover-kpi">
+          <div class="cover-kpi-number">2M</div>
+          <div class="cover-kpi-label">Annual Deaths from Air Pollution (2023)</div>
+        </div>
+        <div class="cover-kpi">
+          <div class="cover-kpi-number">6–9.5%</div>
+          <div class="cover-kpi-label">Annual GDP Erosion from Environmental Cost</div>
+        </div>
+        <div class="cover-kpi">
+          <div class="cover-kpi-number">74/100</div>
+          <div class="cover-kpi-label">Most Polluted Cities Worldwide are in India (IQAir 2024)</div>
+        </div>
+      </div>
+
+      <div class="cover-vol-banner">
+        <div class="cover-vol-label">Six-Volume Structure</div>
+        <div class="cover-vol-list">
+          VOL. I: Origin Matrix &nbsp;·&nbsp; VOL. II: Present Contamination 2026 &nbsp;·&nbsp; VOL. III: Multi-Sectoral Impact<br>
+          VOL. IV: Risk &amp; Compound Scenarios &nbsp;·&nbsp; VOL. V: Forecasts 2040–2050 &nbsp;·&nbsp; VOL. VI: Analytical Infrastructure
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div class="cover-footer-block">
+        <div class="cover-footer-label">Researcher</div>
+        <div class="cover-footer-value">Mohammad Shahid</div>
+      </div>
+      <div class="cover-footer-block">
+        <div class="cover-footer-label">Prepared By</div>
+        <div class="cover-footer-value">Mohammad Shahid</div>
+      </div>
+      <div class="cover-footer-block">
+        <div class="cover-footer-label">Date of Compilation</div>
+        <div class="cover-footer-value">March 2026</div>
+      </div>
+      <div class="cover-footer-block">
+        <div class="cover-footer-label">Source Base</div>
+        <div class="cover-footer-value">120+ Sources: CPCB, CGWB, WHO, World Bank, UNEP, IEA, IPCC, Lancet, Nature, Science, PNAS</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-bottom-bar">
+    <div class="cover-bottom-text">India Pollution Forensic Master 2026 · Reference Document</div>
+    <div class="cover-bottom-text">Zero Prescriptive Content · Observational &amp; Analytical</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     DECLARATION / AUTHORIZATION PAGE
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Declaration &amp; Authorization</div>
+    <div class="page-num">02</div>
+  </div>
+
+  <div class="decl-header">
+    <div class="decl-title">Declaration &amp;<br>Authorization</div>
+    <div class="decl-ref">
+      Reference: IPFM-2026-DECL<br>
+      Date: March 2026<br>
+      Version: v1.0
+    </div>
+  </div>
+
+  <div class="decl-box">
+    <div class="decl-box-title">Document Identification</div>
+    <dl class="decl-grid">
+      <dt>Document Title</dt><dd>India's Pollution Crisis: A Forensic DNA Analysis 2026–2050</dd>
+      <dt>Subtitle</dt><dd>A Six-Volume Forensic Investigation into India's Environmental Crisis</dd>
+      <dt>Document Type</dt><dd>Forensic Research Master Document</dd>
+      <dt>Reference Code</dt><dd>IPFM-2026-V1.0</dd>
+      <dt>Version</dt><dd>v1.0 (Final)</dd>
+      <dt>Date of Compilation</dt><dd>March 2026</dd>
+      <dt>Reference Date</dt><dd>March 2026 (All data current as of this date)</dd>
+      <dt>Classification</dt><dd>Observational &amp; Analytical — Zero Prescriptive Content</dd>
+    </dl>
+  </div>
+
+  <div class="decl-box">
+    <div class="decl-box-title">Author Information</div>
+    <dl class="decl-grid">
+      <dt>Author</dt><dd>Mohammad Shahid</dd>
+      <dt>Prepared By</dt><dd>Mohammad Shahid</dd>
+      <dt>Role</dt><dd>Researcher — Forensic Environmental Analysis</dd>
+    </dl>
+  </div>
+
+  <div class="decl-box">
+    <div class="decl-box-title">Source Base &amp; Scope Declaration</div>
+    <dl class="decl-grid">
+      <dt>Source Count</dt><dd>120+ primary and secondary sources</dd>
+      <dt>Primary Institutions</dt><dd>CPCB, CGWB, CEA, ISRO, WHO, World Bank, UNEP, IEA, IPCC, Lancet, Nature, Science, PNAS, CSE, CEEW, CREA, TERI, ICIMOD</dd>
+      <dt>Scope</dt><dd>Air · Water · Soil · Waste · Health · Economy · Ecosystem · Emerging Contaminants</dd>
+      <dt>Analytical Posture</dt><dd>Strictly observational and forensic — observe, document, quantify, project — <em>never prescribe</em></dd>
+    </dl>
+  </div>
+
+  <div class="decl-box">
+    <div class="decl-box-title">Declaration of Research Integrity</div>
+    <p style="font-size:9pt; margin-bottom:6px;">I, Mohammad Shahid, hereby declare that:</p>
+    <ul class="styled" style="font-size:9pt; margin-bottom:0;">
+      <li>All factual claims contained in this document are traceable to published sources current as of March 2026.</li>
+      <li>The analytical posture maintained throughout is strictly observational and forensic — zero prescriptive content is included.</li>
+      <li>No data has been fabricated, selectively excluded, or presented in a manner that distorts its original meaning.</li>
+      <li>This document is compiled exclusively from government databases, international organizations, and peer-reviewed journals.</li>
+      <li>Where data gaps exist, they are explicitly acknowledged and their implications noted.</li>
+    </ul>
+  </div>
+
+  <div class="decl-signature-area">
+    <div class="sig-block">
+      <div class="sig-label">Author / Researcher</div>
+      <div class="sig-name">Mohammad Shahid</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-label">Prepared By</div>
+      <div class="sig-name">Mohammad Shahid</div>
+    </div>
+    <div class="sig-block" style="margin-top:5mm;">
+      <div class="sig-label">Date of Finalization</div>
+      <div class="sig-name">March 2026</div>
+    </div>
+    <div class="sig-block" style="margin-top:5mm;">
+      <div class="sig-label">Document Version</div>
+      <div class="sig-name">v1.0 — Final</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Mohammad Shahid · March 2026</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     ACKNOWLEDGMENTS / PREFACE
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Preface &amp; Acknowledgments</div>
+    <div class="page-num">03</div>
+  </div>
+
+  <h1 class="section-title"><span class="eyebrow">Preface</span>Acknowledgments</h1>
+
+  <p>This forensic master document represents a systematic, evidence-based compilation of India's environmental contamination landscape as it exists in March 2026. The purpose is neither to alarm nor to reassure, but to provide the most complete, source-traceable accounting of what the scientific, institutional, and governmental record shows — without interpretation, without advocacy, and without prescription.</p>
+
+  <p>India's pollution crisis is a subject of enormous complexity, political sensitivity, and analytical difficulty. Data are scattered across dozens of government agencies, international organizations, and peer-reviewed journals — often with inconsistent methodologies, varying geographic granularity, and differing time horizons. The effort to compile this document involved synthesizing over 120 primary and secondary sources, reconciling divergent estimates where they exist, and explicitly documenting data gaps where the record is incomplete.</p>
+
+  <p>The analytical framework applied throughout is forensic: observe what is documented, quantify what is measurable, project what models support, and acknowledge what remains unknown. Every claim is source-traceable. Where methodologies differ significantly — as they do, for example, in mortality attribution studies — both the range and the methodological reason for divergence are documented.</p>
+
+  <h3 class="subsubsec">Institutional Sources Acknowledged</h3>
+
+  <div class="col-2" style="margin:3mm 0;">
+    <div>
+      <p style="font-size:8.5pt; margin-bottom:2mm;"><strong>Government of India Agencies:</strong><br>
+      Central Pollution Control Board (CPCB), Central Ground Water Board (CGWB), Central Electricity Authority (CEA), Indian Space Research Organisation (ISRO/SAC), Ministry of Environment Forest and Climate Change (MoEFCC), PIB India, National Mission for Clean Ganga (NMCG), NITI Aayog, ICAR/NBSS&amp;LUP.</p>
+
+      <p style="font-size:8.5pt; margin-bottom:2mm;"><strong>International Organizations:</strong><br>
+      World Health Organization (WHO), World Bank, United Nations Environment Programme (UNEP), International Energy Agency (IEA), Intergovernmental Panel on Climate Change (IPCC), ICIMOD, UN-Habitat, FAO.</p>
+    </div>
+    <div>
+      <p style="font-size:8.5pt; margin-bottom:2mm;"><strong>Independent Research Institutions:</strong><br>
+      Centre for Science &amp; Environment (CSE), Council on Energy Environment and Water (CEEW), Centre for Research on Energy and Clean Air (CREA), The Energy and Resources Institute (TERI), Toxics Link, Observer Research Foundation (ORF), IIT Madras, IITM Pune (SAFAR), Karolinska Institute, Harvard University.</p>
+
+      <p style="font-size:8.5pt; margin-bottom:2mm;"><strong>Peer-Reviewed Journals:</strong><br>
+      The Lancet, Nature Communications, Science Advances, PNAS, Geophysical Research Letters, Environmental Sciences Europe, Frontiers series, Atmospheric Environment, Environmental Research Letters, American Economic Review.</p>
+    </div>
+  </div>
+
+  <div class="box box-info">
+    This document is intended for researchers, analysts, policymakers, journalists, and informed citizens who seek a comprehensive, source-traceable overview of India's environmental contamination status. The strictly observational posture is maintained throughout — this document documents the crisis; it does not prescribe responses to it.
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Observational &amp; Analytical — Zero Prescriptive Content</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     ABSTRACT
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Abstract</div>
+    <div class="page-num">04</div>
+  </div>
+
+  <h1 class="section-title"><span class="eyebrow">Research Overview</span>Abstract</h1>
+
+  <div class="abstract-box">
+    <div class="abstract-label">Purpose &amp; Methodology</div>
+    <div class="abstract-text">
+      This forensic master document examines India's environmental contamination across all major media — air, water, soil, and emerging molecular vectors — using an exclusively observational and analytical methodology. Compiled from 120+ primary and secondary sources including government databases, international organizations, and peer-reviewed journals (data current as of March 2026), the study forensically traces the causal architecture, present contamination status, sectoral damage, compound risk, and forward trajectories to 2050 of India's pollution crisis. Zero prescriptive content is included.
+    </div>
+    <div class="abstract-keywords"><strong>Keywords:</strong> PM2.5, Air Quality, Groundwater Contamination, PFAS, Microplastics, Antimicrobial Resistance, GDP Erosion, Forensic Environmental Analysis, IGP Airshed, India 2026–2050</div>
+  </div>
+
+  <h3 class="subsubsec">Key Findings Summary</h3>
+
+  <div class="stat-row stat-row-3" style="margin-bottom:3mm;">
+    <div class="stat-card">
+      <div class="stat-card-num critical">50.6<span style="font-size:14pt"> µg/m³</span></div>
+      <div class="stat-card-label">National Annual PM2.5 Average (2024) — 10× WHO Guideline</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num critical">2M</div>
+      <div class="stat-card-label">Annual Deaths from Air Pollution (2023) — 43% increase since 2000</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num severe">$260B</div>
+      <div class="stat-card-label">Lost Business Revenue 2024 — 2.7× increase from 2021</div>
+    </div>
+  </div>
+
+  <p><strong>Purpose:</strong> To map, with forensic precision, the full spectrum of India's environmental contamination — its structural causes, current scale, sectoral impacts, compound risks, and projected trajectories through 2050 — drawing exclusively on published, traceable data sources.</p>
+
+  <p><strong>Methodology:</strong> Observational and forensic. Source triangulation across government monitoring data, international institutional reports, and peer-reviewed literature. Explicit documentation of data gaps and methodological divergences. Comparative risk assessment using established epidemiological frameworks (GBD, GHG inventories, economic damage function methodology).</p>
+
+  <p><strong>Key Findings:</strong> India's pollution crisis is systemic, multi-vectored, and accelerating across all environmental media simultaneously. The country sits at the convergence of three pollution transitions — poverty, industrialization, and prosperity — without adequate regulatory infrastructure for any of them. National PM2.5 exposure (50.6 µg/m³) is 10× the WHO guideline; 74 of the world's 100 most polluted cities are Indian; 28% of sewage is treated; only 8% of coal plants meet SO₂ emission mandates. Critically, the pollution peak has not yet arrived — projections place it between 2030–2040 under business-as-usual.</p>
+
+  <p><strong>Conclusions:</strong> Five structural realities define India's 2050 trajectory: the crisis is systemic (not episodic); the pollution peak has not arrived; the contamination character is transforming from visible particulates to invisible molecular pollutants; climate change is a force multiplier; and transboundary dimensions make unilateral progress structurally impossible. The economic cost ranges from 5.7–9.5% of GDP annually, with health consequences including 24.9% of total national mortality attributed to PM2.5 over 2009–2019.</p>
+
+  <div class="section-divider"><div class="section-divider-text">Scope of Study</div></div>
+
+  <div class="stat-row stat-row-4">
+    <div class="stat-card">
+      <div class="stat-card-num teal">120+</div>
+      <div class="stat-card-label">Primary &amp; Secondary Sources</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num teal">6</div>
+      <div class="stat-card-label">Volumes Covering All Environmental Media</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num teal">2026</div>
+      <div class="stat-card-label">Data Baseline — March 2026</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num teal">2050</div>
+      <div class="stat-card-label">Forward Projection Horizon</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Mohammad Shahid · March 2026</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     TABLE OF CONTENTS
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Navigation</div>
+    <div class="page-num">05</div>
+  </div>
+
+  <div class="toc-title">Table of<br>Contents</div>
+
+  <div class="toc-section">
+    <div class="toc-vol-header"><span>Front Matter</span></div>
+    <div class="toc-item"><span class="toc-item-text">Cover Page</span><span class="toc-page">01</span></div>
+    <div class="toc-item"><span class="toc-item-text">Declaration &amp; Authorization</span><span class="toc-page">02</span></div>
+    <div class="toc-item"><span class="toc-item-text">Acknowledgments / Preface</span><span class="toc-page">03</span></div>
+    <div class="toc-item"><span class="toc-item-text">Abstract</span><span class="toc-page">04</span></div>
+    <div class="toc-item"><span class="toc-item-text">Table of Contents</span><span class="toc-page">05</span></div>
+    <div class="toc-item"><span class="toc-item-text"><strong>Executive Summary &amp; Master KPI Dashboard</strong></span><span class="toc-page">06</span></div>
+    <div class="toc-item"><span class="toc-item-text">Five Structural Realities Defining India's 2050 Trajectory</span><span class="toc-page">07</span></div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-vol-header"><span>Volume I — The Origin Matrix</span><span>08</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">1.1 Demographic Pressure &amp; Urbanization: The Hyper-Density Multiplier</span><span class="toc-page">09</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">1.2 The Industrial Engine: Coal, Steel, Brick Kilns &amp; Pharmaceuticals</span><span class="toc-page">10</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">1.3 Agricultural Contamination: Burning, Methane, Fertilizers &amp; Pesticides</span><span class="toc-page">12</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">1.4 Transport &amp; Infrastructure: 354 Million Vehicles</span><span class="toc-page">13</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">1.5 Regulatory Architecture: Structural Incapacity at National Scale</span><span class="toc-page">14</span></div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-vol-header"><span>Volume II — Decoding the Present (2026)</span><span>15</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">2.1 Air Quality: 74 of World's 100 Most Polluted Cities</span><span class="toc-page">16</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">2.2 Water Contamination: Rivers, Aquifers &amp; Microplastics</span><span class="toc-page">17</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">2.3 Soil Degradation: 97.85 Million Hectares</span><span class="toc-page">18</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">2.4 Emerging Pollutants: E-Waste, PFAS, AMR, Noise &amp; Light</span><span class="toc-page">19</span></div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-vol-header"><span>Volume III — Multi-Layered Impact Assessment</span><span>20</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">3.1 Human Health: 2 Million Deaths, 37.8 Million COPD Cases &amp; Epigenetics</span><span class="toc-page">21</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">3.2 Agricultural Impact: Ozone, Heavy Metal Bioaccumulation</span><span class="toc-page">22</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">3.3 Economic Erosion: $80–$339 Billion in Annual Damages</span><span class="toc-page">23</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">3.4 Ecosystem Unraveling: Vultures, Wetlands &amp; Coral Reefs</span><span class="toc-page">24</span></div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-vol-header"><span>Volume IV — Risk, Uncertainty &amp; Compound Scenarios</span><span>25</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">4.1 The Indo-Gangetic Plain: A Continental Airshed</span><span class="toc-page">26</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">4.2 Climate Change: Compounding Every Pollution Vector</span><span class="toc-page">27</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">4.3 Economic Shocks, Coal Lock-In &amp; the COVID-19 Natural Experiment</span><span class="toc-page">27</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">4.4 Emerging Contaminants: PFAS, Microplastics, AMR &amp; Battery Waste</span><span class="toc-page">28</span></div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-vol-header"><span>Volume V — Forecasts: Trajectories to 2040 &amp; 2050</span><span>29</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">5.1 Business-As-Usual: The 2030–2040 Peak Pollution Decade</span><span class="toc-page">30</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">5.2 Hyper-Industrialization: Replicating China's 2000–2015 Surge</span><span class="toc-page">31</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">5.3 Green Technology Paradox: New Waste Streams</span><span class="toc-page">31</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">5.4 The 2050 Molecular Pollution Landscape</span><span class="toc-page">32</span></div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-vol-header"><span>Volume VI — Analytical Infrastructure</span><span>33</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">6.1 Core KPI Master Dashboard — India's Pollution Tracker</span><span class="toc-page">34</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">6.2 Primary Indian Data Resources &amp; Critical Limitations</span><span class="toc-page">35</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">6.3 Global Reference Architecture &amp; Benchmarking</span><span class="toc-page">36</span></div>
+    <div class="toc-item toc-sub-item"><span class="toc-item-text">6.4 Atmospheric Dispersion Models &amp; Analytical Frameworks</span><span class="toc-page">36</span></div>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-vol-header"><span>Back Matter</span></div>
+    <div class="toc-item"><span class="toc-item-text"><strong>Conclusion: What the Evidence Reveals (5 Structural Realities)</strong></span><span class="toc-page">37</span></div>
+    <div class="toc-item"><span class="toc-item-text">Curated Annotated References (38 Primary Sources)</span><span class="toc-page">38</span></div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Mohammad Shahid · March 2026</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     EXECUTIVE SUMMARY
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Executive Summary</div>
+    <div class="page-num">06</div>
+  </div>
+
+  <h1 class="section-title"><span class="eyebrow">Overview</span>Executive Summary</h1>
+
+  <div class="abstract-lede">
+    India's pollution crisis is not a single environmental emergency — it is a system of deeply interlocking contamination cycles operating at continental scale.
+  </div>
+
+  <p>Compiled from over 120 primary and secondary sources including government databases (CPCB, CGWB, CEA, ISRO), international organizations (WHO, World Bank, UNEP, IEA, IPCC), and peer-reviewed journals (The Lancet, Nature, Science, PNAS), this six-volume forensic master document maps the full spectrum of causation, present contamination status, sectoral damage, compound risk, and forward trajectories to 2050. Every factual claim is traceable to published sources current as of March 2026. The analytical posture is strictly observational and forensic: <strong>zero prescriptive content</strong>.</p>
+
+  <p>The overarching finding is stark and structurally irreversible in the near term: India's pollution is <strong>systemic, multi-vectored, and accelerating</strong> across all environmental media simultaneously. The COVID-19 lockdown natural experiment proved empirically that India's pollution vanishes when sources stop — and returns instantly when they resume. The problem is not atmospheric chemistry or geography; it is the continuous, largely unregulated operation of over 100,000 brick kilns, 214 GW of coal-fired power capacity, 354 million registered vehicles, and 72,368 MLD of urban sewage of which only 28% is treated.</p>
+
+  <div class="box box-quote">
+    "India does not have one pollution crisis. It has three simultaneous pollution transitions — each at a different stage of intensity, each with a different contamination profile, and each with a different regulatory requirement. The monitoring and governance systems are structurally calibrated to none of them."
+    <span class="quote-attr">— Forensic Research Study 2026 — Structural Diagnosis</span>
+  </div>
+
+  <p>India now sits at the convergence of three pollution transitions simultaneously: still living through the <em>'pollution of poverty'</em> (biomass, open waste, untreated sewage), accelerating into <em>'pollution of industrialization'</em> (coal, steel, cement, chemical), and beginning the <em>'pollution of prosperity'</em> (PFAS, microplastics, pharmaceutical residues, e-waste) — without adequate regulatory infrastructure for any of the three.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">India's Three Simultaneous Pollution Transitions — 2026 Status</div>
+    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:3mm;">
+      <div style="border-top:4px solid var(--critical); padding:8px; background:#fff8f8;">
+        <div style="font-weight:900; font-size:8pt; color:var(--critical); text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;">Phase 1: Poverty</div>
+        <div style="font-size:7.5pt; line-height:1.5; color:var(--text);">Biomass combustion · Open waste burning · Untreated sewage · Indoor pollution<br><br><strong>Status:</strong> Active, ongoing, 2 million deaths/yr</div>
+      </div>
+      <div style="border-top:4px solid var(--gold); padding:8px; background:var(--gold-pale);">
+        <div style="font-weight:900; font-size:8pt; color:var(--warning); text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;">Phase 2: Industrialization</div>
+        <div style="font-size:7.5pt; line-height:1.5; color:var(--text);">Coal power · Steel · Cement · Chemical corridors · E-waste surge<br><br><strong>Status:</strong> Accelerating — peak ~2030–2040</div>
+      </div>
+      <div style="border-top:4px solid var(--teal); padding:8px; background:var(--teal-bg);">
+        <div style="font-weight:900; font-size:8pt; color:var(--teal); text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;">Phase 3: Prosperity</div>
+        <div style="font-size:7.5pt; line-height:1.5; color:var(--text);">PFAS · Microplastics · Pharmaceutical residues · Endocrine disruptors<br><br><strong>Status:</strong> Emerging — zero regulatory infrastructure</div>
+      </div>
+    </div>
+    <div class="chart-source">Source: Forensic Research Study 2026 — Structural Diagnosis Framework</div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Mohammad Shahid · March 2026</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     MASTER KPI DASHBOARD
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Master KPI Dashboard · March 2026 Baseline</div>
+    <div class="page-num">07</div>
+  </div>
+
+  <h2 class="subsec">Master KPI Dashboard — March 2026 Baseline</h2>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th style="width:30%;">Indicator</th>
+        <th>Current Value</th>
+        <th>Benchmark</th>
+        <th style="width:8%; text-align:center;">Trend</th>
+        <th style="text-align:center;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>National PM2.5 Average</strong></td><td>50.6 µg/m³ (2024)</td><td>WHO: 5 µg/m³</td><td class="trend-up" style="text-align:center;">↑</td><td style="text-align:center;"><span class="status status-critical">CRITICAL</span></td></tr>
+      <tr><td><strong>Delhi Annual PM2.5</strong></td><td>104.7 µg/m³ (2024)</td><td>NAAQS: 40 µg/m³</td><td class="trend-up" style="text-align:center;">↑ +3.4%/yr</td><td style="text-align:center;"><span class="status status-critical">CRITICAL</span></td></tr>
+      <tr><td><strong>Cities Exceeding PM10 NAAQS</strong></td><td>206 of 253 (81%)</td><td>Target: 0%</td><td class="trend-eq" style="text-align:center;">→</td><td style="text-align:center;"><span class="status status-severe">SEVERE</span></td></tr>
+      <tr><td><strong>Delhi 'Good' AQI Days 2025</strong></td><td>ZERO days</td><td>365 days/year</td><td class="trend-dn" style="text-align:center;">↓</td><td style="text-align:center;"><span class="status status-critical">CRITICAL</span></td></tr>
+      <tr><td><strong>Ground-Level Ozone Exceedance</strong></td><td>176 days (Delhi NCR)</td><td>NAAQS: 8-hr 100</td><td class="trend-up" style="text-align:center;">↑</td><td style="text-align:center;"><span class="status status-severe">SEVERE</span></td></tr>
+      <tr><td><strong>Annual Air Pollution Deaths</strong></td><td>~2 million (2023)</td><td>—</td><td class="trend-up" style="text-align:center;">↑ +43% since 2000</td><td style="text-align:center;"><span class="status status-critical">CRITICAL</span></td></tr>
+      <tr><td><strong>PM2.5 Mortality Attribution</strong></td><td>24.9% of all deaths</td><td>—</td><td class="trend-up" style="text-align:center;">↑</td><td style="text-align:center;"><span class="status status-critical">CRITICAL</span></td></tr>
+      <tr><td><strong>Polluted River Stretches</strong></td><td>296/271 rivers</td><td>Zero Priority-I</td><td class="trend-up" style="text-align:center;">↑</td><td style="text-align:center;"><span class="status status-severe">SEVERE</span></td></tr>
+      <tr><td><strong>Sewage Treatment Rate</strong></td><td>28% of 72,368 MLD</td><td>Target: 100%</td><td class="trend-eq" style="text-align:center;">→</td><td style="text-align:center;"><span class="status status-critical">CRITICAL</span></td></tr>
+      <tr><td><strong>Delhi STP Compliance</strong></td><td>2 of 38 STPs</td><td>38 of 38</td><td class="trend-dn" style="text-align:center;">↓</td><td style="text-align:center;"><span class="status status-critical">CRITICAL</span></td></tr>
+      <tr><td><strong>Groundwater Nitrate Excess</strong></td><td>19.8% / 440 districts</td><td>0% Target</td><td class="trend-up" style="text-align:center;">↑</td><td style="text-align:center;"><span class="status status-warning">WARNING</span></td></tr>
+      <tr><td><strong>Groundwater Arsenic Excess</strong></td><td>3.55%; 200 µg/L (Ballia)</td><td>WHO: 10 µg/L</td><td class="trend-up" style="text-align:center;">↑</td><td style="text-align:center;"><span class="status status-warning">WARNING</span></td></tr>
+      <tr><td><strong>Groundwater Fluoride Excess</strong></td><td>9.04% / 469 districts</td><td>0% Target</td><td class="trend-eq" style="text-align:center;">→</td><td style="text-align:center;"><span class="status status-warning">WARNING</span></td></tr>
+      <tr><td><strong>Groundwater Uranium Excess</strong></td><td>6.60% of samples</td><td>0% Target</td><td class="trend-up" style="text-align:center;">↑ Newly</td><td style="text-align:center;"><span class="status status-warning">WARNING</span></td></tr>
+      <tr><td><strong>Soil Degradation</strong></td><td>97.85 Mha (29.7%)</td><td>—</td><td class="trend-up" style="text-align:center;">↑ +3.32 Mha</td><td style="text-align:center;"><span class="status status-severe">SEVERE</span></td></tr>
+      <tr><td><strong>Coal Power Without FGD</strong></td><td>92% of 214.69 GW</td><td>100% mandated</td><td class="trend-up" style="text-align:center;">↑</td><td style="text-align:center;"><span class="status status-critical">CRITICAL</span></td></tr>
+      <tr><td><strong>FGD Exemptions (Jul 2025)</strong></td><td>78% of thermal plants</td><td>0% exempted</td><td class="trend-up" style="text-align:center;">↑ New</td><td style="text-align:center;"><span class="status status-critical">CRITICAL</span></td></tr>
+      <tr><td><strong>Microplastics in Blood</strong></td><td>89% positive; 4.2/mL</td><td>0% Target</td><td class="trend-up" style="text-align:center;">↑ First</td><td style="text-align:center;"><span class="status status-warning">WARNING</span></td></tr>
+      <tr><td><strong>PFAS in Breast Milk</strong></td><td>2–16× US limits</td><td>0× limit</td><td class="trend-up" style="text-align:center;">↑</td><td style="text-align:center;"><span class="status status-warning">WARNING</span></td></tr>
+      <tr><td><strong>Economic Cost (GDP Erosion)</strong></td><td>5.7–9.5% of GDP</td><td>—</td><td class="trend-up" style="text-align:center;">↑</td><td style="text-align:center;"><span class="status status-severe">SEVERE</span></td></tr>
+      <tr><td><strong>Lost Business Revenue 2024</strong></td><td>$260 billion/year</td><td>—</td><td class="trend-up" style="text-align:center;">↑ 2.7×</td><td style="text-align:center;"><span class="status status-severe">SEVERE</span></td></tr>
+      <tr><td><strong>Vulture Population</strong></td><td>~19,000 (from 40M+)</td><td>Stable</td><td class="trend-dn" style="text-align:center;">↓ >99.5%</td><td style="text-align:center;"><span class="status status-critical">CRITICAL</span></td></tr>
+      <tr><td><strong>Urban Wetland Loss (Chennai)</strong></td><td>90% lost</td><td>Preserved</td><td class="trend-dn" style="text-align:center;">↓</td><td style="text-align:center;"><span class="status status-severe">SEVERE</span></td></tr>
+      <tr><td><strong>Air Quality Monitoring Coverage</strong></td><td>12% census towns</td><td>100% towns</td><td class="trend-eq" style="text-align:center;">→</td><td style="text-align:center;"><span class="status status-critical">CRITICAL</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-info" style="margin-top:3mm;">
+    This study draws exclusively on published data from government agencies, international organizations, and peer-reviewed scientific journals. It is strictly observational and analytical — containing zero prescriptive content. All data is current as of March 2026.
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Sources: CPCB, CGWB, WHO, World Bank, IQAir, Lancet · March 2026</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     FIVE STRUCTURAL REALITIES
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Five Structural Realities</div>
+    <div class="page-num">08</div>
+  </div>
+
+  <h2 class="subsec">Five Structural Realities Defining India's 2050 Trajectory</h2>
+
+  <div class="reality-block">
+    <div class="reality-num">REALITY 01</div>
+    <div class="reality-title">Systemic, Not Episodic</div>
+    <div class="reality-body">The COVID-19 lockdown proved pollution vanishes when sources stop — and returns instantly when they resume. The regulatory apparatus — 12% monitoring coverage, 28% sewage treatment, 8% FGD compliance — is structurally inadequate. Sources: CPCB; World Bank Blog; ScienceDaily.</div>
+  </div>
+
+  <div class="reality-block">
+    <div class="reality-num">REALITY 02</div>
+    <div class="reality-title">Peak Not Yet Arrived</div>
+    <div class="reality-body">Under business-as-usual, national PM2.5 exposure peaks between 2030–2040. Urban population will nearly double. Vehicle fleet more than doubles. Municipal waste increases 6–8×. India's energy demand sees the largest absolute increase of any country through 2035. Sources: Chowdhury &amp; Dey 2018, Nature Communications; IEA WEO 2025.</div>
+  </div>
+
+  <div class="reality-block">
+    <div class="reality-num">REALITY 03</div>
+    <div class="reality-title">Character Transforming</div>
+    <div class="reality-body">As particulate emissions may eventually decline with fuel transitions, an invisible wave of PFAS, microplastics, pharmaceutical residues, and endocrine disruptors rises with zero regulatory infrastructure. Microplastics already detected in 89% of Indian blood samples. Sources: Mobius Foundation/Nature 2024; IIT Madras ESE 2024.</div>
+  </div>
+
+  <div class="reality-block">
+    <div class="reality-num">REALITY 04</div>
+    <div class="reality-title">Climate Force Multiplier</div>
+    <div class="reality-body">India's own aerosol pollution is suppressing monsoon rainfall. Rising temperatures intensify ozone formation and atmospheric stagnation. Glacier retreat concentrates pollutants in diminishing river flows. The IGP faces a self-reinforcing contamination-climate cycle. Sources: IPCC AR6; PLOS Climate 2025; Nature Communications 2024.</div>
+  </div>
+
+  <div class="reality-block">
+    <div class="reality-num">REALITY 05</div>
+    <div class="reality-title">Transboundary by Definition</div>
+    <div class="reality-body">30% of Bangladesh's urban air pollution originates in India; 30% of Punjab's originates in Pakistan. The Ganga Water Treaty expired in 2026 with no water quality provisions. EU CBAM now links India's trade access to carbon intensity. Unilateral progress is structurally impossible. Sources: World Bank; IWA Publishing; European Commission.</div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">PM2.5 Levels — India's Most Polluted Cities vs. WHO Guideline (2024)</div>
+    <canvas id="cityPM25Chart" height="160"></canvas>
+    <div class="chart-source">Source: IQAir World Air Quality Report 2024 · CPCB Continuous Monitoring Network · CSE January 2025</div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Mohammad Shahid · March 2026</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     VOLUME I — ORIGIN MATRIX
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Volume I</div>
+    <div class="page-num">09</div>
+  </div>
+
+  <div class="vol-banner">
+    <div class="vol-banner-num">Volume I · The Origin Matrix</div>
+    <h2 class="vol-title">The Origin Matrix</h2>
+    <div class="vol-banner-subtitle">Root Causes and Structural Drivers of India's Environmental Contamination</div>
+  </div>
+
+  <p>India's pollution is not a random event or a consequence of geography alone. It is the forensically traceable output of five interlocking structural drivers: demographic hyper-concentration, an industrial architecture built on coal and unregulated micro-industry, agricultural practices that systematically contaminate multiple environmental media simultaneously, a logistical and transport system structurally biased toward high-emission modes, and a regulatory apparatus institutionally incapable of enforcement at national scale.</p>
+
+  <h2 class="subsec"><span class="section-num-tag">1.1</span>Demographic Pressure &amp; Urbanization: The Hyper-Density Multiplier</h2>
+
+  <h3 class="subsubsec">The Population-Density-Pollution Nexus</h3>
+
+  <p>India's population of approximately 1.44–1.46 billion (UN DESA 2024), at a density exceeding 470 persons/km², generates pollution concentrations unmatched in global scale. The Indo-Gangetic Plain (IGP), covering only 15% of India's land area, supports approximately 40% of its population — making it one of the most densely inhabited agricultural basins on Earth. The IGP functions simultaneously as a geographic trap, a pollution source, and a receptor — concentrating pollution loads that, in more open geographies, would disperse within hours.</p>
+
+  <div class="stat-row stat-row-3">
+    <div class="stat-card">
+      <div class="stat-card-num critical">1.4B</div>
+      <div class="stat-card-label">People in IGP Exposed to PM2.5 at 20× WHO Daily Limit</div>
+      <div class="stat-card-source">ICIMOD December 2024</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num severe">470</div>
+      <div class="stat-card-label">Persons per km² national density — among highest globally</div>
+      <div class="stat-card-source">UN DESA 2024</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num warning">236M</div>
+      <div class="stat-card-label">People living in slum conditions (2020), 41% urban population</div>
+      <div class="stat-card-source">UN-Habitat / World Bank 2022</div>
+    </div>
+  </div>
+
+  <h3 class="subsubsec">India's Megacities: Pollution Exposure Profile (2024)</h3>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>City</th>
+        <th>Population (M)</th>
+        <th>Annual PM2.5 (µg/m³)</th>
+        <th>PM2.5 vs WHO</th>
+        <th>Slum Pop (%)</th>
+        <th>Non-Attainment?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Delhi NCR</strong></td><td>31.4</td><td><span class="hl-red">104.7</span></td><td>20.9×</td><td>~30%</td><td><span class="status status-critical">YES</span></td></tr>
+      <tr><td><strong>Mumbai</strong></td><td>21.0</td><td>47.3</td><td>9.5×</td><td>41%</td><td><span class="status status-critical">YES</span></td></tr>
+      <tr><td><strong>Kolkata</strong></td><td>15.0</td><td>58.2</td><td>11.6×</td><td>33%</td><td><span class="status status-critical">YES</span></td></tr>
+      <tr><td><strong>Bengaluru</strong></td><td>13.0</td><td>39.6</td><td>7.9×</td><td>~24%</td><td><span class="status status-critical">YES</span></td></tr>
+      <tr><td><strong>Chennai</strong></td><td>11.0</td><td>36.1</td><td>7.2×</td><td>28%</td><td><span class="status status-critical">YES</span></td></tr>
+      <tr><td><strong>Hyderabad</strong></td><td>11.0</td><td>44.5</td><td>8.9×</td><td>~22%</td><td><span class="status status-critical">YES</span></td></tr>
+      <tr><td><strong>Ahmedabad</strong></td><td>9.5</td><td>56.4</td><td>11.3×</td><td>~19%</td><td><span class="status status-critical">YES</span></td></tr>
+      <tr><td><strong>Lucknow</strong></td><td>4.1</td><td><span class="hl-red">89.3</span></td><td>17.9×</td><td>~21%</td><td><span class="status status-critical">YES</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-snapshot">
+    CPCB has identified 132 non-attainment cities where ambient air quality chronically exceeds national standards. Of these, source apportionment studies have been completed for only 50 cities, with 17 reports published (CREA 2025). India's last comprehensive slum census is 15 years old — a monitoring blindspot affecting 236+ million people's exposure estimates.
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Vol. I — The Origin Matrix</div>
+  </div>
+</div>
+
+<!-- INDUSTRIAL ENGINE PAGE -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Volume I · Industrial Engine</div>
+    <div class="page-num">10</div>
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">1.2</span>The Industrial Engine: Coal, Steel, Brick Kilns &amp; Pharmaceuticals</h2>
+
+  <h3 class="subsubsec">Coal Power: The Dominant Emission Vector &amp; Regulatory Reversal</h3>
+
+  <p>Coal-fired power capacity stands at approximately 214.69 GW (44.28% of total installed capacity), with 24 GW under construction and a staggering 107 GW in pre-construction as of December 2025. A record 38.4 GW of new coal-plant proposals were made in 2024 alone. India is the world's largest emitter of SO₂, with 92% of coal plants operating without Flue Gas Desulphurization.</p>
+
+  <div class="stat-row stat-row-3">
+    <div class="stat-card">
+      <div class="stat-card-num critical">214.69<span style="font-size:13pt"> GW</span></div>
+      <div class="stat-card-label">Total Coal Power Capacity — 44.28% of Installed Total</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num critical">92%</div>
+      <div class="stat-card-label">Coal Plants Without FGD — Only 3.2 GW with SO₂ Controls</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num severe">107<span style="font-size:13pt"> GW</span></div>
+      <div class="stat-card-label">In Pre-Construction Pipeline — Record 38.4 GW Proposed in 2024</div>
+    </div>
+  </div>
+
+  <div class="box box-critical">
+    In July 2025, MoEFCC exempted 78% of India's thermal power plants from mandatory FGD installation — reversing a 2017 mandate. This single regulatory decision locked in maximum SO₂ emissions from 92% of the coal fleet for the foreseeable future. India had already been the world's largest SO₂ emitter. This exemption structurally ensures it will remain so through at minimum 2030–2032. Source: Down to Earth / CREA Analysis, July 2025.
+  </div>
+
+  <h3 class="subsubsec">Steel: World's 2nd Largest Producer with 38% Above-Average Emission Intensity</h3>
+
+  <table class="data-table">
+    <thead><tr><th>Steel Sector Dimension</th><th>Forensic Data Profile</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Steel Production (2024-25)</strong></td><td>151.1 MT crude steel — world's second largest; 24% of manufacturing emissions</td></tr>
+      <tr><td><strong>CO₂ Intensity</strong></td><td>2.55–2.65 tCO₂/tcs — 38% above global average of 1.85; coal-dominant blast furnace technology</td></tr>
+      <tr><td><strong>Annual Emissions</strong></td><td>240–260 million tonnes CO₂; projected to double to 560 MT/year by 2030</td></tr>
+      <tr><td><strong>Technology Profile</strong></td><td>87% of ironmaking capacity coal-dependent; DRI-EAF route below 10%</td></tr>
+      <tr><td><strong>2030 Make in India Target</strong></td><td>300 MT capacity — will increase absolute emissions 2–2.5× without technology transition</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="subsubsec">Brick Kilns: 100,000+ Facilities Surrounding 31.82 Million People</h3>
+
+  <p>India's more than 100,000 brick kilns produce approximately 250 billion bricks annually, consuming 25 million tonnes of coal per year. They emit an estimated <strong>1,428–2,856 tonnes of PM2.5 per day</strong> across the Indo-Gangetic Plain — constituting 8–14% of India's air pollution nationally. Some 31.82 million people — a population larger than Australia's — live within 800 meters of a brick kiln with essentially no real-time regulatory monitoring.</p>
+
+  <div class="box box-data">
+    UNDP Accelerator Lab GeoAI brick kiln detection analysis identified 107,671 operational kilns in India as of 2023, concentrated in: Uttar Pradesh (28,000+), West Bengal (18,000+), Bihar (14,000+), Punjab-Haryana corridor (12,000+), and Rajasthan (8,000+). The IGP states account for approximately 75% of all brick kilns. Sources: UNDP Accelerator Lab 2023; CPCB; arXiv 2024.
+  </div>
+
+  <h3 class="subsubsec">Industrial Sector Emission Profiles — India 2026</h3>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Sector</th>
+        <th>Primary Pollutants</th>
+        <th>Annual Output</th>
+        <th>Emission Intensity</th>
+        <th>Regulatory Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Coal Power</strong></td><td>SO₂, NOx, PM2.5, Mercury</td><td>214.69 GW</td><td>High — FGD at 8%</td><td><span class="status status-critical">92% NON-COMPLIANT</span></td></tr>
+      <tr><td><strong>Steel (Blast Furnace)</strong></td><td>CO₂, PM2.5, CO, NOx</td><td>151.1 MT/year</td><td>38% above global avg</td><td><span class="status status-warning">MODERATE</span></td></tr>
+      <tr><td><strong>Cement</strong></td><td>CO₂, PM10, NOx</td><td>~350 MT/year</td><td>High per tonne</td><td><span class="status status-warning">IMPROVING</span></td></tr>
+      <tr><td><strong>Brick Kilns</strong></td><td>PM2.5, Black Carbon, CO</td><td>250 billion bricks/yr</td><td>Very high</td><td><span class="status status-critical">MINIMAL ENFORCEMENT</span></td></tr>
+      <tr><td><strong>Pharmaceuticals</strong></td><td>AMR compounds, PFAS, VOCs</td><td>20% global generics</td><td>Unquantified</td><td><span class="status status-critical">ACUTE GAPS</span></td></tr>
+      <tr><td><strong>Tanneries</strong></td><td>Chromium, Heavy metals, BOD</td><td>~3 billion sq ft leather</td><td>Very high in clusters</td><td><span class="status status-critical">NON-COMPLIANCE</span></td></tr>
+      <tr><td><strong>MSME Foundries</strong></td><td>PM2.5, Heavy metals, Dioxins</td><td>~40 MT metal/year</td><td>High — no controls</td><td><span class="status status-critical">MINIMAL ENFORCEMENT</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-case">
+    <strong>KANPUR TANNERY CLUSTER — FORENSIC PROFILE:</strong> India's Kanpur district hosts approximately 400 tanneries employing over 250,000 workers, processing approximately 10% of India's total leather output. CPCB monitoring documents chromium concentrations in surrounding soil at 124–258× permissible limits. Groundwater chromium levels in Jajmau blocks exceed 0.1 mg/L (10× WHO limit). NGRI satellite-based analysis shows contaminated groundwater plumes extending 15–20 km downstream from the cluster. Sources: CPCB; NGRI; NGT 2023 order; PMC.
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Vol. I — The Origin Matrix</div>
+  </div>
+</div>
+
+<!-- AGRICULTURE PAGE -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Volume I · Agricultural Contamination</div>
+    <div class="page-num">11</div>
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">1.3</span>Agricultural Contamination: Burning, Methane, Fertilizers &amp; Pesticides</h2>
+
+  <h3 class="subsubsec">Stubble Burning: Evasion of Satellite Detection — A Forensic Finding</h3>
+
+  <p>Stubble burning in Punjab, Haryana, and Uttar Pradesh remains a potent seasonal driver of regional air quality collapse despite headline declines in fire counts. Punjab recorded 5,114 paddy residue burning incidents in 2025 — down from a peak of 76,590 in 2020. However, Punjab Remote Sensing Centre data reveal a forensically critical discrepancy: the total <strong>burnt area remained virtually unchanged at 19.17 lakh hectares in 2024 versus 19.14 lakh hectares in 2023</strong>.</p>
+
+  <div class="box box-critical">
+    ISRO and NASA Earth Observatory (December 2025) documented that stubble burning peak timing systematically shifted from ~1:30 PM to ~5:00 PM between 2020 and 2024 — timed to avoid Suomi NPP VIIRS satellite detection windows. <strong>Fire COUNTS dropped 93%</strong> (76,590 to 5,114). <strong>Burnt AREA dropped 0.2%</strong> (19.14 to 19.17 lakh hectares). The policy metric being tracked is being gamed. The environmental metric that matters is effectively unchanged. This represents a systemic failure of satellite-based enforcement monitoring. Sources: ISRO; NASA Earth Observatory December 2025; CAQM; Punjab Remote Sensing Centre.
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Stubble Burning — Fire Counts vs. Burnt Area (2020–2025): The Policy Evasion Gap</div>
+    <canvas id="stubbleChart" height="130"></canvas>
+    <div class="chart-source">Source: CAQM; Punjab Remote Sensing Centre; ISRO / NASA Earth Observatory December 2025</div>
+  </div>
+
+  <h3 class="subsubsec">India as World's #1 Agricultural Methane Emitter</h3>
+
+  <div class="stat-row stat-row-3">
+    <div class="stat-card">
+      <div class="stat-card-num critical">#1</div>
+      <div class="stat-card-label">Global Agricultural Methane Emitter — UNEP Global Methane Report 2025</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num severe">12.74<span style="font-size:13pt"> Tg</span></div>
+      <div class="stat-card-label">CH₄/year from 536.76 Million Animals — World's Largest Herd</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num warning">27%</div>
+      <div class="stat-card-label">Global Rice Methane Contribution — 4.75 Tg CH₄/year from Paddy Fields</div>
+    </div>
+  </div>
+
+  <h3 class="subsubsec">Fertilizer Runoff &amp; Pesticide Legacy</h3>
+
+  <p>Punjab's average nitrogen application reaches 188 kg N/ha/year — with less than 50% utilized by crops, meaning over <strong>94 kg N/ha/year</strong> enters groundwater, surface water, and the atmosphere. India contributes 14.3% of global agricultural water pollution from non-point sources. The Yamuna downstream of Wazirabad registers dissolved oxygen at 0 mg/L for 20 km — conditions incompatible with any aquatic life.</p>
+
+  <p>Pesticide usage stands at 52,466–66,794 tonnes annually. Despite bans, residues of DDT, HCH, endosulfan, and chlorpyrifos continue to appear in soil and groundwater samples across multiple states. Punjab applies 4× the national average; Andhra Pradesh and Telangana 3× in cotton growing areas. The persistence of organochlorine pesticides in soil — with half-lives measured in years to decades — means contamination from bans implemented in the 1990s–2000s remains active in the environmental record.</p>
+
+  <div class="box box-case">
+    <strong>KERALA ENDOSULFAN TRAGEDY — FORENSIC PROFILE:</strong> Between 1978 and 2001, endosulfan was aerially sprayed on 23,000 hectares of cashew plantations in Kasaragod district. WHO studies documented elevated rates of cancers, neurological disorders, cerebral palsy, congenital malformations, and stillbirths in exposed communities. Soil and water samples taken after the ban (2001 in Kerala; national ban 2011) continued to show endosulfan residues above WHO limits decades later. An estimated 10,000 people in Kasaragod are still under medical treatment as of 2024. Sources: WHO; ICMR; Kerala High Court; PMC.
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">1.4</span>Transport: 354 Million Vehicles on Emission-Intensive Roads</h2>
+
+  <p>India's registered vehicle fleet reached 354 million by March 2022, with two-wheelers dominating at 73–75% of registrations. CEEW projects the fleet will more than double to <strong>494 million by 2050</strong>. Despite India's leapfrog to BS-VI emission standards in April 2020, real-world NOx emissions show no meaningful reduction — the gap between certified and real-world emissions is estimated at <strong>3–7× for NOx in diesel vehicles</strong>.</p>
+
+  <div class="box box-key">
+    Heavy commercial vehicles — trucks — generate 53% of total transport PM emissions in India despite comprising only approximately 3% of the registered vehicle fleet. This reflects: older fleet age (~15 years average), diesel technology without adequate after-treatment, high utilization rates (20+ hours/day), and routes through congested urban cores. Sources: NITI Aayog; RMI; Ministry of Road Transport.
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>City</th><th>PM2.5 from Transport (%)</th><th>PM10 from Road Dust (%)</th><th>Vehicle Density</th><th>Key Issue</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Delhi NCR</strong></td><td>17.9–39.2%</td><td>35.6–65.9%</td><td>800/1,000</td><td>2-wheeler + truck + road dust</td></tr>
+      <tr><td><strong>Mumbai</strong></td><td>25–35%</td><td>30–55%</td><td>350/1,000</td><td>Port-related diesel, old buses</td></tr>
+      <tr><td><strong>Bengaluru</strong></td><td>28–38%</td><td>38–58%</td><td>520/1,000</td><td>IT corridor congestion, 2-wheelers</td></tr>
+      <tr><td><strong>Hyderabad</strong></td><td>22–32%</td><td>35–50%</td><td>430/1,000</td><td>Rapid motorization, infrastructure lag</td></tr>
+      <tr><td><strong>Lucknow</strong></td><td>30–42%</td><td>40–60%</td><td>290/1,000</td><td>Biomass + transport mix; winter stagnation</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Vol. I — The Origin Matrix</div>
+  </div>
+</div>
+
+<!-- REGULATORY ARCHITECTURE PAGE -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Volume I · Regulatory Architecture</div>
+    <div class="page-num">12</div>
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">1.5</span>Regulatory Architecture: Structural Incapacity for Enforcement at National Scale</h2>
+
+  <h3 class="subsubsec">The Sewage Treatment Crisis: 72% of Urban Sewage Untreated</h3>
+
+  <div class="stat-row stat-row-2" style="margin-bottom:4mm;">
+    <div class="stat-card" style="border-left:4px solid var(--critical);">
+      <div class="stat-card-num critical">72%</div>
+      <div class="stat-card-label">of India's Urban Sewage Enters Rivers, Groundwater, and Soil Untreated</div>
+      <div class="stat-card-source">72,368 MLD generated vs. 20,235 MLD treated — CPCB 2021</div>
+    </div>
+    <div class="stat-card" style="border-left:4px solid var(--critical);">
+      <div class="stat-card-num critical">2/38</div>
+      <div class="stat-card-label">Delhi STPs Comply with Fecal Coliform Standards — In the National Capital</div>
+      <div class="stat-card-source">CPCB Monitoring Network 2024</div>
+    </div>
+  </div>
+
+  <p>Six states and territories have zero Sewage Treatment Plants: Arunachal Pradesh, Andaman &amp; Nicobar, Lakshadweep, Manipur, Meghalaya, and Nagaland. Bihar's single STP is non-operational. The sewage treatment gap is not merely an infrastructure gap — it is a <strong>governance architecture gap</strong>.</p>
+
+  <h3 class="subsubsec">Air Quality Monitoring: 12% Census Town Coverage</h3>
+
+  <p>CPCB operates approximately 1,296 stations across 473 cities, but only 12% of India's census towns have any air quality monitoring. Merely 51 stations meet the minimum 104-day monitoring requirement enabling statistically reliable annual averages. Less than half of manual stations measure PM2.5 — the pollutant most directly associated with mortality. India's 640+ districts are effectively invisible to ambient air quality monitoring.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Regulatory Compliance Scorecard — India 2026</div>
+    <canvas id="complianceChart" height="170"></canvas>
+    <div class="chart-source">Source: CPCB; CSE 2023; CREA 2024; NGT; ORF Issue Brief No. 423</div>
+  </div>
+
+  <h3 class="subsubsec">Regulatory Compliance Scorecard — India 2026</h3>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>Regulatory Domain</th><th>Legal Standard</th><th>Actual Performance</th><th>Compliance</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Sewage Treatment</strong></td><td>100% treatment</td><td>28% treated (CPCB 2021)</td><td><span class="status status-critical">28%</span></td></tr>
+      <tr><td><strong>Coal FGD Installation</strong></td><td>100% of plants by 2022</td><td>8% compliant (Dec 2024)</td><td><span class="status status-critical">8%</span></td></tr>
+      <tr><td><strong>Air Quality Monitoring</strong></td><td>All census towns</td><td>12% coverage (CSE 2023)</td><td><span class="status status-critical">12%</span></td></tr>
+      <tr><td><strong>Source Apportionment</strong></td><td>All 130 non-attainment cities</td><td>50 completed, 17 published</td><td><span class="status status-severe">38%</span></td></tr>
+      <tr><td><strong>OCEMS Industrial Reporting</strong></td><td>18 states real-time</td><td>7 states useful data</td><td><span class="status status-severe">39%</span></td></tr>
+      <tr><td><strong>Treated Wastewater Quality</strong></td><td>100% meet CPCB standards</td><td>17% meet standards (NGT)</td><td><span class="status status-critical">17%</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-key">
+    The regulatory apparatus is not merely underfunded — it is structurally designed around <em>input metrics</em> (station counts, program budgets, incident counts) rather than <em>outcome metrics</em> (ambient air quality, treated sewage volumes, industrial compliance rates). The NCAP programme released Rs. 11,211 crore since 2019, with 68% utilized — yet 29 of 97 tracked cities saw PM10 levels actually increase. This is the signature of a system that measures activity rather than impact. Sources: CPCB; CSE; CREA 2025; NGT; ORF Issue Brief No. 423.
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Vol. I — The Origin Matrix</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     VOLUME II — PRESENT CONTAMINATION
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Volume II</div>
+    <div class="page-num">13</div>
+  </div>
+
+  <div class="vol-banner">
+    <div class="vol-banner-num">Volume II · Decoding the Present</div>
+    <h2 class="vol-title">India's Pollution Status in 2026</h2>
+    <div class="vol-banner-subtitle">Air, Water, Soil, and Emerging Molecular Vectors</div>
+  </div>
+
+  <p>Volume II decodes the present contamination landscape across all four major environmental media. The data reveals a crisis that is both broader and deeper than the headline PM2.5 figures suggest: rivers that are biologically dead for tens of kilometers, groundwater contaminated with multiple concurrent toxins across hundreds of districts, soil degraded across nearly a third of the national land area, and an entirely new class of invisible molecular pollutants beginning to overlay the legacy contamination architecture.</p>
+
+  <h2 class="subsec"><span class="section-num-tag">2.1</span>Air Quality: 74 of World's 100 Most Polluted Cities</h2>
+
+  <h3 class="subsubsec">National Air Quality Baseline 2026</h3>
+
+  <p>The IQAir World Air Quality Report 2024 ranked India the <strong>5th most polluted country globally</strong> with a national average PM2.5 of 50.6 µg/m³ — ten times the WHO guideline of 5 µg/m³. Of the world's 100 most polluted cities, <strong>74 are in India</strong>. This ratio has remained stable for three consecutive IQAir annual reports, confirming the structural rather than episodic nature of India's air quality profile.</p>
+
+  <div class="stat-row stat-row-2">
+    <div class="stat-card" style="border-left:4px solid var(--critical);">
+      <div class="stat-card-num critical">50.6<span style="font-size:14pt"> µg/m³</span></div>
+      <div class="stat-card-label">India's National Annual PM2.5 Average (2024) — 10× the WHO Guideline of 5 µg/m³</div>
+      <div class="stat-card-source">IQAir World Air Quality Report 2024</div>
+    </div>
+    <div class="stat-card" style="border-left:4px solid var(--critical);">
+      <div class="stat-card-num critical">0</div>
+      <div class="stat-card-label">Delhi 'Good' AQI Days in All of 2025 — Delhi PM2.5: 104.7 µg/m³ (21× WHO)</div>
+      <div class="stat-card-source">AQI.in; CSE January 2025</div>
+    </div>
+  </div>
+
+  <h3 class="subsubsec">India's Most Polluted Cities — 2024 Annual PM2.5 Data</h3>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>City / State</th><th>Annual PM2.5 (µg/m³)</th><th>vs. WHO (×)</th><th>vs. NAAQS (×)</th><th>Primary Source</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Byrnihat, Meghalaya</strong></td><td><span class="hl-red">128.2</span></td><td>25.6×</td><td>3.2×</td><td>Cement/industrial</td></tr>
+      <tr><td><strong>Delhi NCR (avg)</strong></td><td><span class="hl-red">104.7</span></td><td>20.9×</td><td>2.6×</td><td>Multi-source</td></tr>
+      <tr><td><strong>Faridabad, Haryana</strong></td><td>97.3</td><td>19.5×</td><td>2.4×</td><td>Industrial/transport</td></tr>
+      <tr><td><strong>Loni, UP</strong></td><td>95.8</td><td>19.2×</td><td>2.4×</td><td>Industrial cluster</td></tr>
+      <tr><td><strong>Ghaziabad, UP</strong></td><td>91.6</td><td>18.3×</td><td>2.3×</td><td>Industrial/NCR spill</td></tr>
+      <tr><td><strong>Lucknow, UP</strong></td><td><span class="hl-orange">89.3</span></td><td>17.9×</td><td>2.2×</td><td>Transport/biomass/brick kilns</td></tr>
+      <tr><td><strong>Bhiwadi, Rajasthan</strong></td><td>86.1</td><td>17.2×</td><td>2.2×</td><td>Industrial hub</td></tr>
+      <tr><td><strong>Muzaffarnagar, UP</strong></td><td>84.2</td><td>16.8×</td><td>2.1×</td><td>Sugar/paper/biomass</td></tr>
+      <tr><td><strong>Patna, Bihar</strong></td><td>80.7</td><td>16.1×</td><td>2.0×</td><td>Transport/biomass/brick kilns</td></tr>
+      <tr><td><strong>Kanpur, UP</strong></td><td>77.3</td><td>15.5×</td><td>1.9×</td><td>Tanneries/industrial</td></tr>
+      <tr><td><strong>Varanasi, UP</strong></td><td>73.6</td><td>14.7×</td><td>1.8×</td><td>Transport/cremation/brick</td></tr>
+      <tr><td><strong>Kolkata</strong></td><td>58.2</td><td>11.6×</td><td>1.5×</td><td>Port/industrial/transport</td></tr>
+      <tr><td><strong>Mumbai (avg)</strong></td><td>47.3</td><td>9.5×</td><td>1.2×</td><td>Transport/construction/port</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="subsubsec">The Ozone Crisis: An Underappreciated Emerging Emergency</h3>
+
+  <p>Ground-level ozone is an emerging and systematically underappreciated crisis. Delhi-NCR logged <strong>176 days of ozone exceedance</strong> (approximately 48% of the year) in summer 2024; Lucknow averaged 15.7 hours per exceedance episode; 8-hourly averages approached 200 µg/m³ at multiple stations — double the national standard. Ozone's agricultural impact (crop yield losses of 21–26% for wheat) and its invisibility to standard AQI reporting make it a strategically underregulated pollutant.</p>
+
+  <div class="box box-data">
+    BIOMASS COOKING EXPOSURE: Households using wood/dung/agricultural residue fuel for cooking are exposed to indoor PM2.5 concentrations of 300–1,000+ µg/m³ during cooking periods — 7–25× the national annual ambient standard. The WHO classifies household air pollution from solid fuels as a Group 1 carcinogen. The PMUY scheme distributed 96+ million LPG connections — but CEEW surveys document that 40–60% of beneficiaries continue to use solid fuels due to cylinder refill cost. Sources: WHO; CEEW PMUY survey 2023; ScienceDirect 2024.
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Vol. II — Decoding the Present 2026</div>
+  </div>
+</div>
+
+<!-- WATER CONTAMINATION PAGE -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Volume II · Water Contamination</div>
+    <div class="page-num">14</div>
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">2.2</span>Water Contamination: Rivers, Aquifers, Emerging Chemistry &amp; Microplastics</h2>
+
+  <h3 class="subsubsec">Polluted River Stretches: 296 Across 271 Rivers in 32 States</h3>
+
+  <p>CPCB's 2025 report identified 296 polluted river stretches across 271 rivers in 32 states/UTs, with 37 Priority I stretches where BOD exceeds 30 mg/L — a threshold incompatible with most aquatic life. Maharashtra leads with 54 polluted stretches; Assam 24; Gujarat 22; Uttar Pradesh 20; and West Bengal 18.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>River</th><th>State</th><th>BOD (mg/L)</th><th>DO (mg/L)</th><th>Primary Cause</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Yamuna</strong></td><td>Delhi (Wazirabad–Okhla 22 km)</td><td><span class="hl-red">50–80</span></td><td><span class="hl-red">0</span></td><td>Sewage + industrial + runoff</td></tr>
+      <tr><td><strong>Musi</strong></td><td>Telangana (Hyderabad)</td><td>40–60</td><td>0–1</td><td>Industrial + pharma + sewage</td></tr>
+      <tr><td><strong>Sabarmati</strong></td><td>Gujarat (Ahmedabad)</td><td>30–50</td><td>0–2</td><td>Industrial + sewage discharge</td></tr>
+      <tr><td><strong>Bandi</strong></td><td>Rajasthan (Pali district)</td><td>45–70</td><td>0</td><td>Textile dyeing clusters</td></tr>
+      <tr><td><strong>Kali</strong></td><td>UP (Muzaffarnagar–Meerut)</td><td>35–55</td><td>0–1</td><td>Sugar mills + distilleries</td></tr>
+      <tr><td><strong>Cooum</strong></td><td>Tamil Nadu (Chennai)</td><td>35–50</td><td>0–1</td><td>Sewage + storm drain</td></tr>
+      <tr><td><strong>Ganga</strong></td><td>West Bengal (Nabadwip–Uluberia)</td><td>25–40</td><td>1–2</td><td>Sewage + jute/textile</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-case">
+    <strong>YAMUNA AMMONIA CRISIS — DELHI WATER SUPPLY (DEC 2024 – JAN 2025):</strong> Ammonia levels in the Yamuna at Wazirabad exceeded 3 mg/L on 39 of 58 days. Delhi's water treatment plants are designed for ammonia removal up to 0.9 mg/L. When ammonia exceeds treatment capacity, plants must either shut down or supply partially treated water. Six water treatment plants were forced to temporarily shut down, affecting an estimated <strong>5–7 million Delhi residents</strong>. The source: untreated sewage and industrial discharge from Haryana upstream. Sources: CEEW February 2025; Delhi Jal Board; CPCB.
+  </div>
+
+  <h3 class="subsubsec">Groundwater: Multi-Contaminant Crisis Across 440+ Districts</h3>
+
+  <p>The CGWB Annual Report 2024 (based on 15,259 samples — the most comprehensive national groundwater quality survey) reveals a simultaneous multi-pollutant crisis. These are not isolated local anomalies; they represent structural contamination patterns affecting hundreds of millions of people.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Groundwater Contamination — % of Samples Exceeding Permissible Limits (CGWB 2024)</div>
+    <canvas id="groundwaterChart" height="150"></canvas>
+    <div class="chart-source">Source: CGWB Annual Ground Water Quality Report 2024 · 15,259 samples nationally</div>
+  </div>
+
+  <table class="data-table">
+    <thead><tr><th>Contaminant</th><th>Scale</th><th>Districts Affected</th><th>Key Health Impact</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Nitrate</strong></td><td>19.8% exceed limits</td><td>440 districts</td><td>Methemoglobinemia in infants</td></tr>
+      <tr><td><strong>Fluoride</strong></td><td>9.04% exceed limits — 65M people</td><td>469 districts</td><td>Dental &amp; skeletal fluorosis</td></tr>
+      <tr><td><strong>Arsenic</strong></td><td>3.55% exceed limits — 200 µg/L peak</td><td>Gangetic floodplains</td><td>Arsenicosis, multiple cancers</td></tr>
+      <tr><td><strong>Uranium</strong></td><td>6.60% of samples — newly quantified</td><td>42% from Rajasthan</td><td>Kidney disease clusters</td></tr>
+      <tr><td><strong>Iron</strong></td><td>16.4% above secondary standard</td><td>Eastern India</td><td>Pathogen growth promotion</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-warning">
+    India is the world's largest consumer of groundwater — extracting approximately 250 billion cubic metres annually at 60.4% of the annually rechargeable volume. In 1,592 of 6,965 assessed units (23%), extraction exceeds 100% of recharge — these are 'overexploited' units facing permanent aquifer depletion. As water tables fall, contaminated deeper aquifer layers are accessed — introducing arsenic and uranium at concentrations above WHO limits. The water crisis and the contamination crisis are the same crisis. Source: CGWB Annual Report 2024.
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Vol. II — Decoding the Present 2026</div>
+  </div>
+</div>
+
+<!-- SOIL & EMERGING POLLUTANTS PAGE -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Volume II · Soil &amp; Emerging Pollutants</div>
+    <div class="page-num">15</div>
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">2.3</span>Soil Degradation: 97.85 Million Hectares — Nearly a Third of India's Land</h2>
+
+  <div class="stat-row stat-row-4">
+    <div class="stat-card">
+      <div class="stat-card-num severe">97.85<span style="font-size:13pt"> Mha</span></div>
+      <div class="stat-card-label">Land Area Degraded (29.7% of geographic area)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num warning">64%</div>
+      <div class="stat-card-label">Soil Samples Low in Nitrogen — Across 15M samples</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num warning">48.5%</div>
+      <div class="stat-card-label">Low Soil Organic Carbon (SOC) — CSE October 2025</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num severe">16.4–21</div>
+      <div class="stat-card-label">Tonnes/ha/yr Annual Erosion — vs. Sustainable 4–5 t/ha/yr</div>
+    </div>
+  </div>
+
+  <p>Annual soil erosion of 16.4–21 t/ha/year far exceeds the globally recognized sustainable threshold. This translates to: <strong>5.3 billion tonnes of total annual soil loss</strong>, crop production losses of 13.4 million tonnes (enough grain to feed 67 million people), and economic losses of Rs. 205.32 billion ($2.5 billion) annually.</p>
+
+  <h3 class="subsubsec">Industrial Zone Contamination Hotspots</h3>
+
+  <table class="data-table">
+    <thead><tr><th>Hotspot</th><th>Soil &amp; Groundwater Contamination Profile</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Kanpur, UP — Tanneries</strong></td><td>Chromium <span class="hl-red">124–258× permissible limits</span> in soils; hexavalent chromium in groundwater; plume extending 15–20 km</td></tr>
+      <tr><td><strong>Vadodara, Gujarat — Chemical</strong></td><td>Hema Chemicals dumped 77,000 MT of hexavalent chromium waste; contamination in multiple villages; remediation estimated Rs. 800+ crore</td></tr>
+      <tr><td><strong>Vapi, Gujarat — Chemical Hub</strong></td><td>CPCB CEPI score consistently highest nationally; mercury, lead, arsenic in soil &amp; groundwater; 'critically polluted' for 15+ consecutive years</td></tr>
+      <tr><td><strong>Singrauli, MP — Coal/Power</strong></td><td>PM10 at 3–5× NAAQS; fly ash covering 12,000+ hectares; selenium &amp; arsenic in groundwater from fly ash pond leaching</td></tr>
+      <tr><td><strong>Ludhiana, Punjab — Electroplating</strong></td><td>Heavy metals in Buddha Nallah drainage; chromium 40–80× background; Sutlej River affected for 100+ km downstream</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-info">
+    In 2025, MoEFCC notified the Environment Protection (Management of Contaminated Sites) Rules — the first formal legal structure for contaminated site identification, assessment, and remediation in India. This represents a significant regulatory milestone. However, implementation capacity, financing mechanisms, and enforcement timelines remain to be established. Source: MoEFCC Official Gazette Notification 2025.
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">2.4</span>Emerging Pollutants: E-Waste, PFAS, AMR, Noise &amp; Light</h2>
+
+  <table class="data-table">
+    <thead><tr><th>Emerging Contaminant</th><th>Detection Status, Scale &amp; Regulatory Gap — India 2026</th></tr></thead>
+    <tbody>
+      <tr><td><strong>PFAS (Forever Chemicals)</strong></td><td>Detected in Chennai (136.27 ng/L), Ganga basin (15 compounds), breast milk (2–16× US limits). <span class="hl-red">Zero Indian regulation</span>. Water treatment <em>increases</em> PFAS concentration. IIT Madras 2024.</td></tr>
+      <tr><td><strong>Microplastics</strong></td><td>89% of Indian blood samples positive (4.2 particles/mL). Ganga discharges 1–3 billion particles/day. India #2 globally for waterway contribution (391,879 tonnes 2024). Zero regulatory framework.</td></tr>
+      <tr><td><strong>Antibiotic Residues / AMR</strong></td><td>80% of rivers at high AMR risk; 3 antibiotics at 2–5× limits in 4 rivers; 75% tourist transmission rate; 100% MDR bacteria in Musi River. India is the world's largest antibiotic user.</td></tr>
+      <tr><td><strong>Endocrine Disruptors (EDCs)</strong></td><td>30% sperm count decline over 20 years; rising early puberty, obesity, learning disorders. <span class="hl-red">No national EDC monitoring program.</span></td></tr>
+      <tr><td><strong>E-Waste</strong></td><td>14.14 lakh MT generated (2025-26). &gt;90% handled informally. Seelampur: blood lead levels in workers 5–10× background. Children within 500m: blood lead avg 28 µg/dL (3× CDC action threshold).</td></tr>
+      <tr><td><strong>Light Pollution</strong></td><td>70% of population affected; night sky brightness +20% in a decade; cardiovascular and circadian disruption documented. Source: Bedi et al. 2021, Springer.</td></tr>
+      <tr><td><strong>Noise Pollution</strong></td><td>92% of sites exceed daytime CPCB standards (Puducherry study); cardiovascular and sleep disruption documented.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-warning">
+    India's rivers are functioning as antimicrobial resistance (AMR) incubators. With 80% of rivers at high AMR-generating pollution risk, antibiotic selection pressure is applied continuously across the hydrological network. The WHO has classified AMR as one of the top global public health threats — capable of causing 10 million deaths annually by 2050 under BAU. India's pharmaceutical river contamination represents the world's largest single-country contribution to environmental AMR development. The 75% tourist transmission rate makes this a global pathway with no regulatory framework. Sources: Toxics Link; India Water Portal; WHO.
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Vol. II — Decoding the Present 2026</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     VOLUME III — IMPACT ASSESSMENT
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Volume III</div>
+    <div class="page-num">16</div>
+  </div>
+
+  <div class="vol-banner">
+    <div class="vol-banner-num">Volume III · Multi-Layered Impact Assessment</div>
+    <h2 class="vol-title">Multi-Layered Impact Assessment</h2>
+    <div class="vol-banner-subtitle">Human Health, Food Systems, Economy, Ecosystems, and the Hidden Mortality</div>
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">3.1</span>Human Health: 2 Million Deaths, 37.8 Million COPD Cases &amp; the Epigenetic Footprint</h2>
+
+  <h3 class="subsubsec">Mortality: The 2 Million Annual Death Toll &amp; Its Undercounting</h3>
+
+  <p>The State of Global Air 2025 Report estimates 2 million deaths from air pollution-related diseases in India in 2023 — a <strong>43% increase from 1.4 million in 2000</strong>. A landmark causal-inference study in Lancet Planetary Health (December 2024) used a fundamentally more rigorous methodology — exploiting quasi-random variation in pollution levels — and found that every 10 µg/m³ increase in PM2.5 increases mortality by 8.6%, attributing <strong>16.6 million deaths over 2009–2019</strong> to PM2.5 — approximately <strong>24.9% of total Indian mortality in that decade</strong>. This figure is dramatically higher than GBD estimates, suggesting conventional health accounting tools substantially undercount India's pollution mortality burden.</p>
+
+  <div class="stat-row stat-row-3">
+    <div class="stat-card" style="border-left:4px solid var(--critical);">
+      <div class="stat-card-num critical">16.6M</div>
+      <div class="stat-card-label">Deaths Attributed to PM2.5 over 2009–2019 — Lancet Planetary Health 2024</div>
+      <div class="stat-card-source">24.9% of total Indian mortality — Karolinska/Harvard</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num severe">37.8M</div>
+      <div class="stat-card-label">COPD Cases — 7–8.6% Prevalence in Adults Aged 30+; Air Pollution Causes 7/10 COPD Deaths</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num warning">$339.4B</div>
+      <div class="stat-card-label">Monetized Premature Mortality Value — 9.5% of GDP (Lancet Countdown 2025)</div>
+    </div>
+  </div>
+
+  <h3 class="subsubsec">Disease Burden by Category</h3>
+
+  <table class="data-table">
+    <thead><tr><th>Disease / Impact Category</th><th>Forensic Burden Estimate &amp; Source</th></tr></thead>
+    <tbody>
+      <tr><td><strong>COPD</strong></td><td>7–8.6% prevalence in adults ≥30 years (~37.8 million); air pollution causes 7 of 10 COPD deaths. GBD 2019; SoGA 2025.</td></tr>
+      <tr><td><strong>Lung Cancer</strong></td><td>1 in 3 lung cancer deaths attributed to air pollution; Delhi residents 1.5× national average risk; non-smoker lung cancer now ~50% of OPD visits. ICMR 2022.</td></tr>
+      <tr><td><strong>Asthma (Adolescents)</strong></td><td>Delhi adolescents: 21.7% by questionnaire; 29.4% airflow obstruction on spirometry. Lung India 2021.</td></tr>
+      <tr><td><strong>Reduced Lung Function — Children</strong></td><td>43.5% of Delhi schoolchildren vs. 25.7% rural controls — permanent developmental impairment. Siddique et al.</td></tr>
+      <tr><td><strong>Cardiovascular Disease</strong></td><td>&gt;1 in 4 heart disease deaths; atherogenic dyslipidemia in urban cohort. CARRS Cohort; SoGA 2025.</td></tr>
+      <tr><td><strong>Low Birth Weight / Preterm</strong></td><td>PM2.5 during pregnancy: AOR 1.4 for low birth weight, 1.7 for preterm. NFHS 2019-21 analysis.</td></tr>
+      <tr><td><strong>IQ Impairment in Children</strong></td><td>Solid biomass fuel in first 3 years lowers IQ at ages 6–8. PGIMER study.</td></tr>
+      <tr><td><strong>Dementia</strong></td><td>54,000+ dementia deaths linked to pollution in 2024. SoGA 2025.</td></tr>
+      <tr><td><strong>Water-Borne Disease</strong></td><td>Arsenic: 6 million in WB above 50 µg/L; Fluorosis: 65 million across 201 districts; Diarrhea: $600M/year burden (UNICEF 2019).</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-key">
+    India's pollution burden is creating an epigenetic legacy. DNA methylation changes documented in high-pollution urban populations — at genes controlling cancer suppression, immune function, and metabolic regulation — can potentially be transmitted to offspring. This means the biological cost of India's current air quality is not limited to the living generation; it is being written into the genetic expression patterns of the next generation before they are born. Sources: Environmental Advances, ScienceDirect 2021; multiple PMC studies on arsenic epigenomics.
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Vol. III — Multi-Layered Impact Assessment</div>
+  </div>
+</div>
+
+<!-- ECONOMIC & ECOSYSTEM PAGE -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Volume III · Economic &amp; Ecosystem Impact</div>
+    <div class="page-num">17</div>
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">3.2</span>Agricultural Impact: Ozone Destroys 6 Million Tonnes of Crops</h2>
+
+  <p>Surface ozone damaged 6 million metric tonnes of wheat, rice, soybean, and cotton in a single measured year — enough to feed 94 million people below the poverty line. Recent WRF-Chem modeling estimates wheat yield losses at <strong>21–26% from ozone</strong>. A PNAS study found air pollution caused more than a <strong>32% decrease in wheat yield from 1980 to 2010</strong>, versus only 3.5% from climate change alone — with some densely populated states experiencing 50% relative yield losses.</p>
+
+  <div class="box box-data">
+    OZONE vs. CLIMATE AS CROP STRESSORS: PNAS 2014 (Burney &amp; Ramanathan) found air pollution caused &gt;32% decline in wheat yield 1980–2010, while climate change caused only 3.5% decline over the same period. This ratio — pollution impact approximately <strong>9× climate impact on wheat</strong> — inverts the standard policy narrative. Yet climate change receives substantially more policy attention and funding in India's agricultural adaptation programmes. Sources: Burney &amp; Ramanathan 2014, PNAS; WEF; AGU/Ghude et al.
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">3.3</span>Economic Erosion: $80–$339 Billion in Annual Documented Damages</h2>
+
+  <div class="stat-row stat-row-3">
+    <div class="stat-card" style="border-left:4px solid var(--critical);">
+      <div class="stat-card-num critical">$260B</div>
+      <div class="stat-card-label">Lost Business Revenues in 2024 — 2.7× increase from $95B in 2021 (Dalberg/Clean Air Fund)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num severe">$44B</div>
+      <div class="stat-card-label">Lost from 3.8 Billion Working Days — Pollution-related deaths &amp; illness in 2019 (Dalberg)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num warning">4.5%</div>
+      <div class="stat-card-label">GDP Deficit — India's GDP would be higher had pollution halved (World Bank 2023)</div>
+    </div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Pollution's Sector-Specific Economic Impacts — India 2024 (Estimated Annual Loss)</div>
+    <canvas id="economicChart" height="160"></canvas>
+    <div class="chart-source">Source: World Bank; Dalberg/Clean Air Fund; PNAS; AGU; NAAS; ASER; Lancet Countdown 2025</div>
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">3.4</span>Ecosystem Unraveling: Vultures, Wetlands &amp; Coral Reefs</h2>
+
+  <p>The collapse of India's vulture population — from approximately 40–50 million to approximately 19,000 (a decline exceeding <strong>99.5%</strong> over approximately 15 years) — caused by veterinary diclofenac poisoning is one of the most catastrophic biodiversity losses in modern recorded history. Frank &amp; Sudarshan (American Economic Review, 2024) quantified the cascading human health consequence: vulture loss is linked to a <strong>4.7% increase in human mortality</strong> in formerly vulture-rich districts, resulting in more than <strong>100,000 excess human deaths annually</strong> and <strong>$69.4 billion/year in economic damages</strong>.</p>
+
+  <table class="data-table">
+    <thead><tr><th>Ecosystem / Species</th><th>Forensic Collapse Profile &amp; Second-Order Human Impact</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Vulture Population</strong></td><td>From ~40–50 million to ~19,000 (&gt;99.5% decline); Frank &amp; Sudarshan 2024: 100,000+ excess human deaths/year; $69.4B/year economic damage</td></tr>
+      <tr><td><strong>Ganges River Dolphin</strong></td><td>IUCN Endangered; ~1,200–1,800 individuals; threatened by pesticides, fertilizers, &gt;50 dams; population declining</td></tr>
+      <tr><td><strong>Giant Honey Bees — Bengaluru</strong></td><td>90% colony decline 1987–2014; &gt;40% national honeybee disappearance over 25 years; air quality, pesticide, habitat drivers</td></tr>
+      <tr><td><strong>Gulf of Mannar Coral Reefs</strong></td><td>11,060 ha (2005) → 6,628 ha (2021) — 40% loss; 4th global bleaching event (2023–25) hit Indian waters</td></tr>
+      <tr><td><strong>Urban Wetlands</strong></td><td>Chennai: 90% lost; Mumbai: 71% lost; Bengaluru: 56% lost — eliminating natural water treatment, biodiversity &amp; flood attenuation</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-case">
+    <strong>VULTURE COLLAPSE — AMERICAN ECONOMIC REVIEW FINDING (2024):</strong> Frank &amp; Sudarshan used geographic variation in historical vulture populations as a natural experiment to causally identify the human mortality impact. Districts with historically high vulture densities experienced 4.7% higher mortality after the collapse. This is likely the first paper in a top economics journal to establish a causal link between the loss of a single wildlife species and a documented human mortality outcome at this magnitude. Source: Frank &amp; Sudarshan, American Economic Review 2024.
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Vol. III — Multi-Layered Impact Assessment</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     VOLUME IV — RISK & COMPOUND SCENARIOS
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Volume IV</div>
+    <div class="page-num">18</div>
+  </div>
+
+  <div class="vol-banner">
+    <div class="vol-banner-num">Volume IV · Risk, Uncertainty &amp; Compound Scenarios</div>
+    <h2 class="vol-title">Risk &amp; Compound Scenarios</h2>
+    <div class="vol-banner-subtitle">IGP Airshed Dynamics, Climate Multipliers, Economic Shocks, and the Gathering Invisible Crisis</div>
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">4.1</span>The Indo-Gangetic Plain: A Continental Airshed Beyond National Control</h2>
+
+  <h3 class="subsubsec">Transboundary Pollution: 30% Flows Across Every Border</h3>
+
+  <p>PM2.5 concentrations reach 20× the WHO daily limit across the Indo-Gangetic Plain, affecting approximately <strong>1.4 billion people</strong> in India, Pakistan, Nepal, and Bangladesh simultaneously. The IGP is functionally a single atmospheric unit — bounded by the Himalayas to the north, the Thar Desert to the west, and the Bay of Bengal to the east — within which pollutants circulate for days before dispersal.</p>
+
+  <p>Approximately <strong>30% of air pollution in Punjab (India) originates from Pakistan</strong>, and approximately <strong>30% of pollution in Bangladesh's largest cities originates in India</strong>. This bidirectional exchange means that even if any single nation achieved 100% emission reduction within its borders, it would still be receiving approximately 30% of its air quality problem from its neighbours. Unilateral environmental progress is structurally impossible to complete.</p>
+
+  <div class="box box-key">
+    The IGP's transboundary pollution dynamic creates a structural collective action problem of the first order. No nation in the IGP can achieve WHO air quality guideline compliance through domestic action alone. Bangladesh cannot control 30% of its air quality. India cannot control 30% of Punjab's. Nepal's valley cities receive pollution from the entire IGP basin. This is not a national regulatory problem — it is a regional governance problem with no existing institutional framework adequate to address it. Sources: World Bank; ICIMOD 2024; WRF-Chem modeling.
+  </div>
+
+  <h3 class="subsubsec">Water Treaty Vacuum: Expiry of the 1996 Ganga Treaty</h3>
+
+  <p>The India-Bangladesh Ganga Water Sharing Treaty (1996) expired in 2026. The treaty governed only volumetric allocation and contained <strong>no provisions whatsoever for water quality</strong>. Bangladesh did not receive its guaranteed share 65% of the time during critical dry periods from 1997–2016. A replacement treaty with transboundary water quality standards would constitute a fundamental paradigm shift in South Asian environmental governance. The absence leaves bilateral water quality governance in a complete legal vacuum at precisely the moment when the Ganga's contamination load is at its highest historically documented level.</p>
+
+  <h3 class="subsubsec">EU CBAM: The First Trade-Linked Environmental Conditionality</h3>
+
+  <p>The EU Carbon Border Adjustment Mechanism (CBAM) entered its definitive phase on January 1, 2026, covering iron/steel, aluminum, cement, and fertilizers — four key Indian export sectors. CBAM effectively imposes a carbon price on exported goods (~€65–70/tonne CO₂ in early 2026).</p>
+
+  <table class="data-table">
+    <thead><tr><th>Sector</th><th>India–EU Export Volume</th><th>CO₂ Intensity</th><th>Est. CBAM Surcharge (€M/yr)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Steel</strong></td><td>~2.5 MT/year</td><td>2.55–2.65 tCO₂/tcs</td><td>€190–220M</td></tr>
+      <tr><td><strong>Aluminum</strong></td><td>~0.3 MT/year</td><td>High — coal power-based</td><td>€40–60M</td></tr>
+      <tr><td><strong>Cement</strong></td><td>~0.5 MT/year</td><td>~0.8 tCO₂/t</td><td>€25–35M</td></tr>
+      <tr><td><strong>Fertilizers</strong></td><td>~0.4 MT/year</td><td>High — gas/coal based</td><td>€30–50M</td></tr>
+      <tr><td><strong>Total Estimated Exposure</strong></td><td>—</td><td>—</td><td><strong>€285–365M/year</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="subsec"><span class="section-num-tag">4.2</span>Climate Change: Compounding Every Pollution Vector Simultaneously</h2>
+
+  <div class="box box-quote">
+    "India's air pollution is suppressing the monsoon that feeds 1.4 billion people. The agricultural economy depends on rainfall generated by the same atmospheric system that pollution degrades. This is the most profound environmental feedback loop documented in this study: economic activity is eroding the meteorological system that makes the economy viable."
+    <span class="quote-attr">— IPCC AR6 / PLOS Climate 2025 — Aerosol-Monsoon Interaction</span>
+  </div>
+
+  <table class="data-table">
+    <thead><tr><th>Climate-Pollution Interaction</th><th>Mechanism &amp; Documented Impact</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Aerosol → Monsoon Suppression</strong></td><td>Anthropogenic aerosols reduce monsoon rainfall 0.5–1.5 mm/day per decade over IGP. IPCC AR6; PLOS Climate 2025.</td></tr>
+      <tr><td><strong>Warming → Ozone Intensification</strong></td><td>Higher temperatures accelerate ozone formation; Delhi summer ozone already approaches 200 µg/m³ (8-hr average). CSE 2024.</td></tr>
+      <tr><td><strong>Stagnation Days Increase</strong></td><td>Winter stagnation days in IGP will increase 7±3 by 2100 under high warming — adding ~7 µg/m³ PM2.5 seasonally. Nature Communications 2024.</td></tr>
+      <tr><td><strong>Glacier Retreat → Flow Reduction</strong></td><td>HKH glaciers losing ice 65% faster; up to 75% volume loss projected by century end. Same contamination in less dilution water. ICIMOD.</td></tr>
+      <tr><td><strong>Urban Heat Island</strong></td><td>Indian cities 4.65–6.82°C above rural surroundings. UHI intensifies ozone, traps pollutants, increases energy demand. Springer 2025.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="subsec"><span class="section-num-tag">4.3</span>The COVID-19 Natural Experiment</h2>
+
+  <div class="box box-key">
+    The COVID lockdown is the most important natural experiment in Indian environmental science: it proved that India's pollution is <strong>100% anthropogenic</strong> — entirely produced by human activity. It proved the pollution is <strong>100% removable</strong> — ambient levels improved to 20-year lows within weeks. And it proved the pollution is <strong>100% structurally embedded</strong> — levels returned to baseline within weeks of reopening. These three findings together eliminate the possibility that geography, climate, or atmospheric chemistry are the primary determinants of India's air quality. The determinant is the continuous operation of the economy. Sources: World Bank Blog; ScienceDaily; multiple PMC studies.
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Vol. IV — Risk, Uncertainty &amp; Compound Scenarios</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     VOLUME V — FORECASTS
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Volume V</div>
+    <div class="page-num">19</div>
+  </div>
+
+  <div class="vol-banner">
+    <div class="vol-banner-num">Volume V · Forecasts: Trajectories to 2040 &amp; 2050</div>
+    <h2 class="vol-title">Forecasts: 2040 &amp; 2050</h2>
+    <div class="vol-banner-subtitle">Business-As-Usual, Hyper-Industrialization, Green Technology Paradox, and the Molecular Pollution Shift</div>
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">5.1</span>Business-As-Usual: The 2030–2040 Peak Pollution Decade</h2>
+
+  <p>The most rigorous published projection (Chowdhury and Dey 2018, Nature Communications) using 13 CMIP5 models finds national ambient exposure peaks in 2030 under RCP4.5 and 2040 under RCP8.5. The <strong>2035–2040 window likely represents the 'peak pollution decade'</strong> for India's major cities — the highest sustained PM2.5 levels in modern Indian history.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">BAU Scenario — Key Pollution Indicators: 2026 Baseline vs. 2040 vs. 2050 Projections</div>
+    <canvas id="projectionChart" height="180"></canvas>
+    <div class="chart-source">Source: Chowdhury &amp; Dey 2018 (Nature Communications); IEA WEO 2025; CEEW; BP Energy Outlook 2024; NITI Aayog</div>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>Indicator</th><th>2026 Baseline</th><th>2040 Projection (BAU)</th><th>2050 Projection (BAU)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>National PM2.5 (µg/m³)</strong></td><td>50.6</td><td>~58–70 (peak decade)</td><td>~40–55 (post-peak, still 8–11× WHO)</td></tr>
+      <tr><td><strong>Delhi Annual PM2.5</strong></td><td>104.7</td><td>~110–130</td><td>~80–100</td></tr>
+      <tr><td><strong>Urban Population</strong></td><td>~540M (36.9%)</td><td>~700–750M</td><td>814–951M (+75%)</td></tr>
+      <tr><td><strong>Registered Vehicle Fleet</strong></td><td>~354M</td><td>~420–450M</td><td>~494M (40% increase)</td></tr>
+      <tr><td><strong>Municipal Solid Waste</strong></td><td>~70 Mt/year</td><td>~200–250 Mt/year</td><td>436–543 Mt/year (6–8×)</td></tr>
+      <tr><td><strong>Annual Air Pollution Deaths</strong></td><td>~2M (2023)</td><td>~2.1–2.5M (peak)</td><td>~1.5–2.0M</td></tr>
+      <tr><td><strong>Coal Power Capacity</strong></td><td>214.69 GW</td><td>~380 GW</td><td>~420 GW (~2× increase)</td></tr>
+      <tr><td><strong>Solar Panel Waste</strong></td><td>~100 kt</td><td>~600 kt by 2030</td><td>~19,000 kt (~19 Mt, 190× increase)</td></tr>
+      <tr><td><strong>Li-Ion Battery Waste</strong></td><td>Small baseline</td><td>~6× current levels</td><td>~10× current levels</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-snapshot">
+    The IEA World Energy Outlook 2025 identifies India as the source of the <strong>largest absolute increase in global energy demand through 2035 — surpassing China</strong>. BP's Current Trajectory scenario projects India's carbon emissions increasing approximately 60% between 2023 and 2050, with coal share remaining above 40%. Sources: IEA WEO 2025; BP Energy Outlook 2024; IIASA GAINS.
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">5.2</span>Hyper-Industrialization: Replicating China's 2000–2015 Surge</h2>
+
+  <p>India's Make in India targets include steel capacity of 300 MT by 2030 (from ~135 MT currently) and ambitious industrial corridor plans. If India follows China's 2000–2015 industrialization pattern without proportional environmental controls — China's CO₂ grew from approximately 3.5 to 10 Gt during that phase — India's comparable surge could add 1–2 Gt of CO₂ by 2050 and cause a proportionate intensification of PM2.5, SO₂, NOx, and heavy metal contamination in industrial corridors.</p>
+
+  <div class="box box-warning">
+    China mandated FGD on all coal plants by 2010, achieving 70% compliance by 2015, and &gt;90% by 2020. India's FGD compliance rate is <span class="hl-red">8% as of December 2024</span>, with 78% of plants newly exempted in July 2025. This single technology gap generates massive SO₂ and secondary PM2.5 formation that China has partially controlled. It is the most significant near-term controllable difference between the two industrial trajectories.
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">5.3 &amp; 5.4</span>Green Technology Paradox &amp; The 2050 Molecular Landscape</h2>
+
+  <div class="stat-row stat-row-3">
+    <div class="stat-card">
+      <div class="stat-card-num warning">6×</div>
+      <div class="stat-card-label">Li-ion Battery Waste Increase by 2040 — 10× by 2050 (NITI Aayog)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num severe">19 Mt</div>
+      <div class="stat-card-label">Solar Panel Waste by 2050 — from ~100 kt in 2024 (CEEW/MNRE)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card-num critical">299</div>
+      <div class="stat-card-label">PV Recycling Facilities Needed by 2047 — Zero Established Today (CEEW)</div>
+    </div>
+  </div>
+
+  <div class="phase-grid">
+    <div class="phase-box">
+      <div class="phase-label">Phase 1 · ~Now through 2035</div>
+      <div class="phase-title">Pollution of Poverty</div>
+      <div class="phase-body">Visible particulates dominate: PM2.5/PM10 smog, biomass combustion, open waste burning, untreated sewage. Kills 2 million Indians annually today. All current regulatory systems calibrated to this phase.</div>
+    </div>
+    <div class="phase-box phase-2">
+      <div class="phase-label">Phase 2 · ~2020–2045</div>
+      <div class="phase-title">Pollution of Industrialization</div>
+      <div class="phase-body">Mixed regime: chemical pollutants intensify from industrial expansion. E-waste and battery waste volumes surge. Secondary PM2.5 formation continues. Heavy metal contamination reaches maximum intensity.</div>
+    </div>
+    <div class="phase-box phase-3">
+      <div class="phase-label">Phase 3 · ~2035–2050+</div>
+      <div class="phase-title">Pollution of Prosperity</div>
+      <div class="phase-body">Invisible molecular pollution dominates: PFAS, microplastics, endocrine disruptors, pharmaceutical residues. The 'cocktail effect' — compounds individually below thresholds but combined produce documented biological effects.</div>
+    </div>
+  </div>
+
+  <div class="box box-warning">
+    The 'cocktail effect': multiple contaminants at individually sub-threshold concentrations combine to produce measurable biological effects. Traditional single-pollutant regulatory frameworks — which set limits for one compound at a time, assuming no interaction — are structurally blind to this phenomenon. India's environmental governance architecture is calibrated to the 1990s understanding of toxicology. The 2040–2050 contamination landscape will require a fundamentally different regulatory paradigm. Sources: Springer Nature; Discover Environment; Mobius Foundation 2024.
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Vol. V — Forecasts: Trajectories to 2040 &amp; 2050</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     VOLUME VI — ANALYTICAL INFRASTRUCTURE
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Volume VI</div>
+    <div class="page-num">20</div>
+  </div>
+
+  <div class="vol-banner">
+    <div class="vol-banner-num">Volume VI · Analytical Infrastructure</div>
+    <h2 class="vol-title">Analytical Infrastructure</h2>
+    <div class="vol-banner-subtitle">KPI Dashboard, Data Resources, Global Reference Architecture &amp; Modeling Frameworks</div>
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">6.2</span>Government Monitoring Networks: Coverage, Capabilities &amp; Gaps</h2>
+
+  <table class="data-table">
+    <thead><tr><th>Monitoring System</th><th>Capabilities &amp; Critical Limitations</th></tr></thead>
+    <tbody>
+      <tr><td><strong>CPCB National AQ Network</strong></td><td>~1,296 stations across 473 cities. CRITICAL: only 12% of census towns covered; only 51 stations meet 104-day minimum; &lt;50% measure PM2.5; no rural coverage. Longest historical record; feeds NAAQS compliance assessment.</td></tr>
+      <tr><td><strong>SAFAR (IITM Pune)</strong></td><td>Real-time 72-hour forecasting for 4 cities ONLY: Delhi, Mumbai, Pune, Ahmedabad. Monitors PM2.5, PM10, O₃, CO, NOx, SO₂, benzene, mercury. CRITICAL: 4 cities = &lt;1% of India's urban population in need of guidance.</td></tr>
+      <tr><td><strong>ISRO Satellite AQ Products</strong></td><td>AOD via INSAT-3D/3DR; open-source ML product delivers daily PM2.5 at 10-km resolution for India 2005–2023 (Science Advances). Full national coverage; fills ground-station gaps. LIMITATION: AOD-to-PM2.5 conversion uncertainty; no SO₂/NO₂ from Indian satellites.</td></tr>
+      <tr><td><strong>CGWB Water Quality Monitoring</strong></td><td>15,259+ sample points; annual sampling; 26 parameters including nitrate, fluoride, arsenic, uranium. 30+ year historical record. LIMITATION: Annual sampling misses acute events; PFAS, microplastics, EDCs not yet monitored.</td></tr>
+      <tr><td><strong>OCEMS Industrial Monitoring</strong></td><td>~4,000 industrial units. CRITICAL: only 7 of 18 reporting states provide analytically useful data; CPCB does not publish real-time data publicly; enforcement based on self-reported data. ORF Issue Brief No. 423.</td></tr>
+      <tr><td><strong>Soil Health Card Programme</strong></td><td>15 million samples analyzed; covers NPK, pH, SOC, micronutrients. LIMITATION: heavy metals not included in standard testing; no georeferenced time-series analysis; not integrated with groundwater mapping.</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="subsubsec">Documented Critical Data Gaps — The Monitoring Blindspots</h3>
+
+  <div class="monitor-grid">
+    <div class="monitor-card">
+      <div class="monitor-card-title">PFAS Monitoring</div>
+      <div class="monitor-card-body">No systematic national monitoring program despite NGT suo motu action in 2024. CSIR-NEERI survey underway but timeline and methodology not published.</div>
+    </div>
+    <div class="monitor-card">
+      <div class="monitor-card-title">Microplastics</div>
+      <div class="monitor-card-body">No standardized national sampling or reporting protocol. Current data is research-generated, not regulatory-grade.</div>
+    </div>
+    <div class="monitor-card">
+      <div class="monitor-card-title">Rural Indoor Air Quality</div>
+      <div class="monitor-card-body">SAFAR covers 4 cities; 86.5% of rural households using biomass are monitored by essentially zero continuous stations.</div>
+    </div>
+    <div class="monitor-card">
+      <div class="monitor-card-title">Slum Population Census</div>
+      <div class="monitor-card-body">Last comprehensive slum census: 2011 — 15-year gap creates systematic exposure estimation error for 236+ million people.</div>
+    </div>
+    <div class="monitor-card">
+      <div class="monitor-card-title">Antibiotic / Pharma Rivers</div>
+      <div class="monitor-card-body">Toxics Link and NGT case-triggered monitoring exists; no systematic national program for pharmaceutical river monitoring.</div>
+    </div>
+    <div class="monitor-card">
+      <div class="monitor-card-title">Transboundary Monitoring</div>
+      <div class="monitor-card-body">No operational bilateral monitoring network with Pakistan, Bangladesh, or Nepal despite shared IGP airshed.</div>
+    </div>
+  </div>
+
+  <h2 class="subsec"><span class="section-num-tag">6.4</span>Atmospheric Dispersion Models &amp; Analytical Frameworks</h2>
+
+  <table class="data-table">
+    <thead><tr><th>Modeling Framework</th><th>Application &amp; Limitations in India</th></tr></thead>
+    <tbody>
+      <tr><td><strong>AERMOD (EPA Gaussian Plume)</strong></td><td>Regulatory model for point-source impact. Applied in Pune, Delhi, Durgapur, Nagpur. STRENGTH: Regulatory acceptance. LIMITATION: Limited to hundreds of km range; no full atmospheric chemistry.</td></tr>
+      <tr><td><strong>WRF-Chem</strong></td><td>Full chemistry-coupled mesoscale model. Used by IITM Pune, C-DAC for IGP seasonal PM2.5, ozone, aerosol-monsoon interactions. STRENGTH: Full chemistry and meteorology coupled. LIMITATION: Computationally intensive; requires high-resolution emission inventories.</td></tr>
+      <tr><td><strong>IIASA GAINS</strong></td><td>Integrated emission scenario and AQ impact modeling to 2050. Primary model for NCAP target-setting. STRENGTH: Policy-linked long-term projections. LIMITATION: Aggregated sector representations; limited spatial granularity.</td></tr>
+      <tr><td><strong>India-ASI</strong></td><td>India-specific stagnation index projecting 7±3 additional winter stagnation days by 2100 under high warming. Nature Communications 2024. Emerging tool — limited validation period.</td></tr>
+      <tr><td><strong>CMIP5/CMIP6</strong></td><td>Climate model ensemble for PM2.5 projections to 2100. Used in Chowdhury &amp; Dey 2018 for India-specific PM2.5 peak projection. STRENGTH: Ensemble uncertainty quantification.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Vol. VI — Analytical Infrastructure</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     CONCLUSION
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Conclusion</div>
+    <div class="page-num">21</div>
+  </div>
+
+  <h1 class="section-title"><span class="eyebrow">What the Evidence Reveals</span>Conclusion</h1>
+
+  <p style="margin-bottom:5mm;">This six-volume forensic examination — built on over 120 primary and secondary sources current as of March 2026 — reveals five structural realities that define India's pollution trajectory through 2050. These are not policy recommendations. They are observed structural facts, each precisely traceable to published, peer-reviewed, or officially reported data. They are stated without prescription, without political framing, and without editorial opinion. They are what the data shows.</p>
+
+  <div class="conclusion-block">
+    <div class="conclusion-num">STRUCTURAL REALITY 01</div>
+    <div class="conclusion-heading">Systemic, Not Episodic</div>
+    <div class="conclusion-body">The COVID-19 lockdown proved that India's pollution vanishes when sources stop — and returns instantly when they resume. The problem is not atmospheric chemistry, not geography, and not climate. It is the continuous, largely unregulated operation of 100,000+ brick kilns emitting 1,428–2,856 tonnes of PM2.5 per day; 214 GW of coal-fired power capacity with 92% operating without SO₂ controls; 354 million registered vehicles; and 72,000 MLD of urban sewage of which 72% is discharged untreated. The regulatory apparatus — 12% monitoring coverage, 28% sewage treatment, 8% FGD compliance, only 7 of 18 states providing useful industrial emission data — is structurally inadequate to the scale of continuous discharge. Sources: CPCB; World Bank Blog; ScienceDaily; CSE; CREA; ORF.</div>
+  </div>
+
+  <div class="conclusion-block">
+    <div class="conclusion-num">STRUCTURAL REALITY 02</div>
+    <div class="conclusion-heading">Peak Not Yet Arrived</div>
+    <div class="conclusion-body">Under business-as-usual, national PM2.5 exposure is projected to peak between 2030 and 2040. Urban population will nearly double to 814–951 million. The vehicle fleet will more than double to 494 million. Municipal solid waste will increase 6–8× to 436–543 Mt/year. India's energy demand will see the largest absolute increase of any country through 2035, surpassing China. <strong>The worst pollution decade in India's history is structurally ahead, not behind.</strong> Sources: Nature Communications; IEA WEO 2025; CEEW; BP Energy Outlook.</div>
+  </div>
+
+  <div class="conclusion-block">
+    <div class="conclusion-num">STRUCTURAL REALITY 03</div>
+    <div class="conclusion-heading">Character Transforming</div>
+    <div class="conclusion-body">Even as particulate emissions may eventually decline post-2040, an invisible wave of chemical contamination — PFAS, microplastics, pharmaceutical residues, endocrine disruptors, antibiotic-resistant bacteria — is rising with zero regulatory infrastructure. Microplastics are already detected in 89% of Indian blood samples at 4.2 particles/mL. PFAS in breast milk exceeds US advisory limits by up to 16×. 80% of rivers are at high AMR risk. The cocktail effect of multiple sub-threshold contaminants represents a regulatory challenge that India's entire environmental governance architecture — calibrated to the 1990s — is structurally blind to. Sources: Mobius Foundation/Nature 2024; IIT Madras ESE 2024; Toxics Link.</div>
+  </div>
+
+  <div class="conclusion-block">
+    <div class="conclusion-num">STRUCTURAL REALITY 04</div>
+    <div class="conclusion-heading">Climate Is a Force Multiplier, Not a Separate Crisis</div>
+    <div class="conclusion-body">India's own aerosol pollution is suppressing the monsoon rainfall that irrigates the food supply for 1.4 billion people. Rising temperatures intensify ozone formation (Delhi already at 176 exceedance days per year) and atmospheric stagnation (7±3 additional winter stagnation days by 2100). Glacier retreat concentrates pollutants in diminishing river flows. Urban heat islands of 4.65–6.82°C amplify all these effects. The IGP faces a self-reinforcing cycle where pollution worsens climate impacts and climate change worsens pollution. Sources: IPCC AR6; PLOS Climate 2025; Nature Communications 2024.</div>
+  </div>
+
+  <div class="conclusion-block">
+    <div class="conclusion-num">STRUCTURAL REALITY 05</div>
+    <div class="conclusion-heading">Transboundary by Definition — Unilateral Progress Is Impossible</div>
+    <div class="conclusion-body">30% of Bangladesh's urban air pollution originates in India. 30% of Punjab's air pollution originates in Pakistan. The Ganga Water Sharing Treaty expired in 2026 with no water quality provisions. The EU CBAM now links India's trade access to carbon intensity. 75% of international tourists return from India carrying antibiotic-resistant bacteria. The Gulf of Mannar's coral loss is documented to global bleaching events. The HKH glacier loss affects water security across 8 nations. India's pollution is a global problem with an Indian epicenter. Sources: World Bank; IWA Publishing; European Commission; Toxics Link; ICRI 2025; ICIMOD.</div>
+  </div>
+
+  <div class="box box-key">
+    The data is unambiguous. The trajectory is quantifiable. The consequences — 2 million deaths annually, $260 billion in lost business revenues, 6–9.5% GDP erosion, ecosystem collapse from vultures to coral reefs, and an emerging invisible chemistry contaminating 89% of blood samples — are documented with increasing forensic precision. What happens next is a matter of observation, measurement, and accountability for the decades ahead.
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Mohammad Shahid · March 2026</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     ANNOTATED REFERENCES
+     ======================================================== -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Curated Annotated References</div>
+    <div class="page-num">22</div>
+  </div>
+
+  <h1 class="section-title"><span class="eyebrow">Primary Source Documentation</span>Curated Annotated References</h1>
+
+  <p style="margin-bottom:4mm; font-size:9pt;">All references below are primary or high-quality secondary sources. Reliability ratings: <strong>Very High</strong> = peer-reviewed institutional; <strong>High</strong> = institutional with clear methodology; <strong>Moderate-High</strong> = independent analysis with transparent sources. All sources current as of March 2026.</p>
+
+  <h3 class="subsubsec" style="margin-bottom:2mm;">Air Quality &amp; Atmospheric Sciences</h3>
+
+  <div class="ref-item"><div class="ref-num">01</div><div class="ref-content"><strong>IQAir World Air Quality Report 2024 (March 2025)</strong> — Annual global PM2.5 city rankings. Primary source for India as 5th most polluted country and Delhi's 104.7 µg/m³. Compiled from thousands of ground stations with satellite validation. <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">02</div><div class="ref-content"><strong>State of Global Air 2025 (Health Effects Institute / IHME)</strong> — Primary source for India's 2 million annual deaths (43% increase since 2000). GBD methodology; annual peer-reviewed. The gold standard for global pollution mortality estimates. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">03</div><div class="ref-content"><strong>Lancet Countdown on Health and Climate Change 2025</strong> — Source for labor productivity losses (247 billion hours), PM2.5 premature mortality (1.72 million), monetized mortality (USD 339.4 billion = 9.5% GDP). <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">04</div><div class="ref-content"><strong>Karolinska/Harvard Causal Inference Study, Lancet Planetary Health (December 2024)</strong> — Landmark attribution of 16.6 million deaths to PM2.5 over 2009–2019 (24.9% of total mortality). Most methodologically rigorous India-specific mortality study. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">05</div><div class="ref-content"><strong>Chowdhury and Dey 2018 (Nature Communications)</strong> — Definitive PM2.5 trajectory model using 13 CMIP5 models. Basis for the 2030/2040 peak pollution projection. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">06</div><div class="ref-content"><strong>CREA 'Tracing the Hazy Air 2025'</strong> — Source for 206/253 cities exceeding PM10 NAAQS; source apportionment completion status. <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">07</div><div class="ref-content"><strong>CSE Centre for Science and Environment (2024–2026 Reports)</strong> — Primary source for ozone exceedance data across 10 metropolitan regions; Delhi zero 'good' AQI days in 2025; NCAP utilization analysis. <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">08</div><div class="ref-content"><strong>GBD-MAPS Working Group (RSC Publishing / IHME)</strong> — Establishes 81% of India's PM2.5 from fuel combustion. Most comprehensive source apportionment analysis covering India 1998–2020. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">09</div><div class="ref-content"><strong>Nature Communications 2024 — India-ASI Atmospheric Stagnation Index</strong> — Projects 7±3 additional winter stagnation days by 2100 under high warming (+~7 µg/m³ PM2.5). <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">10</div><div class="ref-content"><strong>ISRO / NASA Earth Observatory — Satellite Fire Timing Evasion (December 2025)</strong> — Documents systematic shift in stubble burning peak timing from ~1:30 PM to ~5:00 PM (2020–2024) to evade Suomi NPP VIIRS detection. One of the most significant forensic findings in this study. <em>Reliability: High.</em></div></div>
+
+  <h3 class="subsubsec" style="margin-top:4mm; margin-bottom:2mm;">Water Quality &amp; Hydrological Contamination</h3>
+
+  <div class="ref-item"><div class="ref-num">11</div><div class="ref-content"><strong>CPCB 'Polluted River Stretches for Restoration 2025'</strong> — Official government source: 296 polluted stretches across 271 rivers. Primary regulatory database. <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">12</div><div class="ref-content"><strong>CGWB Annual Ground Water Quality Report 2024</strong> — 15,259 samples nationally; definitive source for nitrate, fluoride, arsenic, uranium contamination. Official CGWB data. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">13</div><div class="ref-content"><strong>IIT Madras Study — Environmental Sciences Europe 2024</strong> — PFAS in Chennai waters (136.27 ng/L); water treatment increases PFAS. Peer-reviewed Springer journal. Major policy implications. <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">14</div><div class="ref-content"><strong>CEEW Yamuna Assessment (February 2025)</strong> — Yamuna contamination loads; ammonia crisis; 641 MLD untreated sewage. <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">15</div><div class="ref-content"><strong>ScienceDirect Microplastics Systematic Review (2025)</strong> — 198-study review (1990–2025) for freshwater microplastic baseline in India. Peer-reviewed, comprehensive scope. <em>Reliability: High.</em></div></div>
+
+  <h3 class="subsubsec" style="margin-top:4mm; margin-bottom:2mm;">Soil, Agriculture &amp; Ecosystem</h3>
+
+  <div class="ref-item"><div class="ref-num">16</div><div class="ref-content"><strong>ISRO Desertification and Land Degradation Atlas 2021</strong> — 97.85 Mha (29.7%) land degradation as of 2018-19. Multi-temporal satellite-based analysis. Official PIB India publication. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">17</div><div class="ref-content"><strong>CSE Soil Health Card Assessment (October 2025)</strong> — 64% nitrogen deficiency, 48.5% SOC, 55.4% boron deficiency across 15 million samples. <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">18</div><div class="ref-content"><strong>UNEP Global Methane Status Report 2025</strong> — India as #1 global agricultural methane emitter. UN Environment Programme institutional publication. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">19</div><div class="ref-content"><strong>Ghude et al. (Geophysical Research Letters / AGU) — Ozone Crop Damage</strong> — 6 million MT crop loss from ozone in a single year. Most cited India-specific ozone-agriculture study. <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">20</div><div class="ref-content"><strong>Burney &amp; Ramanathan 2014 (PNAS) — Pollution vs. Climate on Crops</strong> — Air pollution caused &gt;32% wheat yield decline 1980–2010 vs. only 3.5% from climate change. Published in PNAS. Inverts conventional policy narrative. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">21</div><div class="ref-content"><strong>Frank &amp; Sudarshan 2024 (American Economic Review) — Vulture Collapse Mortality</strong> — 100,000+ excess human deaths/year; $69.4 billion/year in damages from vulture collapse. First causal identification of single-species loss → human mortality at this scale. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">22</div><div class="ref-content"><strong>ICRI 2025 — Gulf of Mannar Coral Status</strong> — 11,060 ha (2005) to 6,628 ha (2021) reef loss. International Coral Reef Initiative — authoritative body for global reef monitoring. <em>Reliability: Very High.</em></div></div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Mohammad Shahid · March 2026 · References 01–22</div>
+  </div>
+</div>
+
+<!-- REFERENCES PAGE 2 -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-section-tag">Curated Annotated References (Continued)</div>
+    <div class="page-num">23</div>
+  </div>
+
+  <h3 class="subsubsec" style="margin-bottom:2mm;">Health &amp; Economic Impact</h3>
+
+  <div class="ref-item"><div class="ref-num">23</div><div class="ref-content"><strong>World Bank Environmental Degradation and GDP Studies (2023–2025)</strong> — $80 billion/year environmental damage; 4.5% GDP deficit; 0.56 percentage point growth reduction per unit PM2.5. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">24</div><div class="ref-content"><strong>Dalberg / Clean Air Fund Study (January 2025)</strong> — $260 billion in lost business revenues in 2024; 2.7× increase from $95 billion in 2021. Independent consultancy with transparent methodology. <em>Reliability: Moderate-High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">25</div><div class="ref-content"><strong>India State-Level Disease Burden Initiative (Lancet, 2020)</strong> — 1.67 million deaths (17.8% of national mortality) from air pollution in 2019. Sub-national granularity for state-level decomposition. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">26</div><div class="ref-content"><strong>Lancet Countdown 2025 — Labor Productivity</strong> — 247 billion labor hours lost from heat exposure. Multi-institutional peer-reviewed annual tracker. <em>Reliability: Very High.</em></div></div>
+
+  <h3 class="subsubsec" style="margin-top:4mm; margin-bottom:2mm;">Industrial, Regulatory &amp; Futures</h3>
+
+  <div class="ref-item"><div class="ref-num">27</div><div class="ref-content"><strong>CPCB STP Capacity Audit 2021</strong> — 28% sewage treatment rate (20,235 MLD of 72,368 MLD). Foundation data for India's water governance gap. <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">28</div><div class="ref-content"><strong>CREA FGD Compliance Analysis (2023–2024)</strong> — 92% of coal plants without FGD; only 3.2 GW with SO₂ controls; 8% FGD compliance as of December 2024. Centre for Research on Energy and Clean Air. <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">29</div><div class="ref-content"><strong>ORF Issue Brief No. 423 — OCEMS Industrial Data Gaps</strong> — Only 7 of 18 reporting states provide analytically useful industrial emission data. Observer Research Foundation. <em>Reliability: Moderate-High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">30</div><div class="ref-content"><strong>Fick et al. 2009 / BITS Pilani NGT Study — Pharmaceutical Pollution</strong> — Ciprofloxacin at 14,000 µg/L in CETP effluent; 100% MDR bacteria in Musi River. Peer-reviewed environmental science. <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">31</div><div class="ref-content"><strong>CEEW Long-Term Studies (2024–2025): Vehicle Fleet, Solar Waste, Yamuna</strong> — Vehicle fleet to 494 million by 2050; solar panel waste to 19 Mt by 2050. India's leading independent energy and environment think tank. <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">32</div><div class="ref-content"><strong>IEA World Energy Outlook 2025</strong> — India as source of largest absolute energy demand increase through 2035. IEA annual flagship publication. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">33</div><div class="ref-content"><strong>NITI Aayog / RMI Studies — Transport, EV, Logistics</strong> — Freight modal share, truck PM dominance, logistics GDP cost, EV waste projections. Official Government of India policy body. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">34</div><div class="ref-content"><strong>BP Energy Outlook 2024 — India Carbon Trajectory</strong> — India's carbon emissions +60% by 2050; coal share above 40% in Current Trajectory scenario. BP corporate publication with transparent methodology. <em>Reliability: Moderate-High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">35</div><div class="ref-content"><strong>European Commission CBAM Documentation (2026)</strong> — Definitive source for CBAM definitive phase implementation, covered sectors, compliance obligations. Official EC publication. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">36</div><div class="ref-content"><strong>Mobius Foundation / Nature Scientific Reports 2024 — Microplastics in Blood</strong> — 89% of Indian blood samples positive; 4.2 particles/mL average. First systematic Indian blood microplastic detection study. <em>Reliability: High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">37</div><div class="ref-content"><strong>ICIMOD 2024 — HKH Glacier and IGP Transboundary Analysis</strong> — Glaciers losing ice 65% faster; 75% volume loss projected; IGP WRF-Chem transboundary pollution modeling. International Centre for Integrated Mountain Development. <em>Reliability: Very High.</em></div></div>
+  <div class="ref-item"><div class="ref-num">38</div><div class="ref-content"><strong>Punjab Remote Sensing Centre / CAQM — Stubble Burning Area vs. Count Data</strong> — Fire count decline 93% (76,590 to 5,114) but burnt area unchanged (19.14 to 19.17 lakh ha). Official government data confirming satellite evasion hypothesis. <em>Reliability: Very High.</em></div></div>
+
+  <div class="box box-info" style="margin-top:5mm;">
+    This annotated reference list covers 38 primary sources cited directly in the main text with specific data claims. A complete bibliography of all 120+ sources consulted during the preparation of this master document is available from the researcher on request. All web-accessible sources were verified as of March 2026.
+  </div>
+
+  <div style="margin-top:6mm; border-top: 1px solid var(--border); padding-top:5mm; display:flex; justify-content:space-between; align-items:flex-end;">
+    <div>
+      <div style="font-family:'Source Code Pro', monospace; font-size:7pt; color:var(--gold); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:3px;">End of Document</div>
+      <div style="font-family:'Cormorant Garamond', serif; font-size:14pt; font-weight:700; color:var(--navy);">India Pollution Forensic Master 2026</div>
+      <div style="font-size:9pt; color:var(--text-light); margin-top:2px;">Observational &amp; Analytical · Zero Prescriptive Content · Version v1.0</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:8.5pt; color:var(--text-light);">Author &amp; Researcher</div>
+      <div style="font-size:10pt; font-weight:700; color:var(--navy);">Mohammad Shahid</div>
+      <div style="font-size:8.5pt; color:var(--text-light);">March 2026</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">India Pollution Forensic Master 2026 · v1.0</div>
+    <div class="footer-text">Mohammad Shahid · March 2026 · References 23–38</div>
+  </div>
+</div>
+
+<!-- ========================================================
+     CHARTS INITIALIZATION
+     ======================================================== -->
+<script>
+Chart.defaults.font.family = "'Lato', sans-serif";
+Chart.defaults.font.size = 10;
+Chart.defaults.color = '#4A4A6A';
+
+// Color palette
+const colors = {
+  critical: '#B91C1C',
+  severe: '#C2410C',
+  warning: '#B45309',
+  navy: '#0B1929',
+  teal: '#0F766E',
+  gold: '#C4910A',
+  blue: '#1D4ED8'
+};
+
+// 1. City PM2.5 Chart
+const ctx1 = document.getElementById('cityPM25Chart').getContext('2d');
+new Chart(ctx1, {
+  type: 'bar',
+  data: {
+    labels: ['Byrnihat', 'Delhi NCR', 'Faridabad', 'Loni', 'Ghaziabad', 'Lucknow', 'Patna', 'Kanpur', 'Kolkata', 'Mumbai'],
+    datasets: [{
+      label: 'Annual PM2.5 (µg/m³)',
+      data: [128.2, 104.7, 97.3, 95.8, 91.6, 89.3, 80.7, 77.3, 58.2, 47.3],
+      backgroundColor: [colors.critical, colors.critical, colors.severe, colors.severe, colors.severe, colors.severe, colors.warning, colors.warning, '#78350F', '#92400E'],
+      borderRadius: 0,
+      borderSkipped: false,
+    }, {
+      label: 'WHO Guideline (5 µg/m³)',
+      data: Array(10).fill(5),
+      type: 'line',
+      borderColor: colors.teal,
+      borderWidth: 2,
+      borderDash: [5, 3],
+      pointRadius: 0,
+      fill: false,
+    }, {
+      label: 'NAAQS Standard (40 µg/m³)',
+      data: Array(10).fill(40),
+      type: 'line',
+      borderColor: colors.gold,
+      borderWidth: 2,
+      borderDash: [5, 3],
+      pointRadius: 0,
+      fill: false,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'top', labels: { boxWidth: 14, font: { size: 9 } } }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: { display: true, text: 'PM2.5 (µg/m³)', font: { size: 9 } },
+        grid: { color: '#E5E7EB' }
+      },
+      x: { grid: { display: false }, ticks: { font: { size: 8 } } }
+    }
+  }
+});
+
+// 2. Stubble Burning Chart
+const ctx2 = document.getElementById('stubbleChart').getContext('2d');
+new Chart(ctx2, {
+  type: 'bar',
+  data: {
+    labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+    datasets: [{
+      label: 'Fire Counts (thousands)',
+      data: [76.59, 71.3, 49.9, 36.6, 10.8, 5.114],
+      backgroundColor: colors.critical,
+      borderRadius: 0,
+      yAxisID: 'y',
+    }, {
+      label: 'Burnt Area (lakh hectares)',
+      data: [19.0, 18.8, 19.05, 19.14, 19.17, null],
+      type: 'line',
+      borderColor: colors.gold,
+      backgroundColor: 'rgba(196,145,10,0.15)',
+      borderWidth: 2.5,
+      pointRadius: 5,
+      fill: true,
+      yAxisID: 'y1',
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'top', labels: { boxWidth: 14, font: { size: 9 } } }
+    },
+    scales: {
+      y: {
+        type: 'linear',
+        position: 'left',
+        title: { display: true, text: 'Fire Counts (thousands)', font: { size: 9 } },
+        grid: { color: '#E5E7EB' }
+      },
+      y1: {
+        type: 'linear',
+        position: 'right',
+        title: { display: true, text: 'Burnt Area (lakh ha)', font: { size: 9 } },
+        grid: { drawOnChartArea: false },
+        min: 18, max: 20
+      },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// 3. Compliance Chart
+const ctx3 = document.getElementById('complianceChart').getContext('2d');
+new Chart(ctx3, {
+  type: 'bar',
+  data: {
+    labels: ['Sewage Treatment', 'Coal FGD Installation', 'AQ Monitoring Coverage', 'Source Apportionment', 'OCEMS Reporting', 'Wastewater Quality'],
+    datasets: [{
+      label: 'Actual Compliance (%)',
+      data: [28, 8, 12, 38, 39, 17],
+      backgroundColor: [colors.critical, colors.critical, colors.critical, colors.severe, colors.severe, colors.critical],
+      borderRadius: 0,
+    }, {
+      label: 'Required (100%)',
+      data: [100, 100, 100, 100, 100, 100],
+      backgroundColor: 'rgba(209,213,219,0.4)',
+      borderRadius: 0,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: { position: 'top', labels: { boxWidth: 14, font: { size: 9 } } }
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        max: 100,
+        title: { display: true, text: 'Compliance (%)', font: { size: 9 } },
+        grid: { color: '#E5E7EB' }
+      },
+      y: { grid: { display: false }, ticks: { font: { size: 8 } } }
+    }
+  }
+});
+
+// 4. Groundwater Chart
+const ctx4 = document.getElementById('groundwaterChart').getContext('2d');
+new Chart(ctx4, {
+  type: 'bar',
+  data: {
+    labels: ['Nitrate\n(440 districts)', 'Iron\n(Eastern India)', 'Fluoride\n(469 districts)', 'Uranium\n(mostly Rajasthan)', 'Arsenic\n(Gangetic belt)'],
+    datasets: [{
+      label: '% of Samples Exceeding Permissible Limits',
+      data: [19.8, 16.4, 9.04, 6.60, 3.55],
+      backgroundColor: [colors.critical, colors.severe, colors.warning, colors.gold, '#92400E'],
+      borderRadius: 0,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ctx.parsed.y + '% of samples' } }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: { display: true, text: '% Samples Exceeding Limit', font: { size: 9 } },
+        grid: { color: '#E5E7EB' }
+      },
+      x: { grid: { display: false }, ticks: { font: { size: 8 } } }
+    }
+  }
+});
+
+// 5. Economic Chart
+const ctx5 = document.getElementById('economicChart').getContext('2d');
+new Chart(ctx5, {
+  type: 'bar',
+  data: {
+    labels: ['Labor\nProductivity', 'Consumer\nEconomy', 'Real\nEstate', 'Industrial\nProductivity', 'Agriculture', 'Healthcare', 'Education', 'Tourism'],
+    datasets: [{
+      label: 'Estimated Annual Loss (USD Billion)',
+      data: [55, 22, 11.5, 15, 7.25, 9, 4.5, 3],
+      backgroundColor: [colors.critical, colors.severe, colors.warning, colors.gold, colors.teal, colors.blue, '#7C3AED', '#6B7280'],
+      borderRadius: 0,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: { display: true, text: 'Est. Annual Loss (USD Billion)', font: { size: 9 } },
+        grid: { color: '#E5E7EB' }
+      },
+      x: { grid: { display: false }, ticks: { font: { size: 8 } } }
+    }
+  }
+});
+
+// 6. BAU Projections Chart
+const ctx6 = document.getElementById('projectionChart').getContext('2d');
+new Chart(ctx6, {
+  type: 'line',
+  data: {
+    labels: ['2026', '2030', '2035', '2040', '2045', '2050'],
+    datasets: [{
+      label: 'National PM2.5 µg/m³ (BAU)',
+      data: [50.6, 55, 63, 67, 55, 47],
+      borderColor: colors.critical,
+      backgroundColor: 'rgba(185,28,28,0.08)',
+      borderWidth: 2.5,
+      pointRadius: 4,
+      fill: true,
+      tension: 0.4,
+      yAxisID: 'y',
+    }, {
+      label: 'Urban Population (millions)',
+      data: [540, 580, 630, 725, 790, 870],
+      borderColor: colors.navy,
+      backgroundColor: 'rgba(11,25,41,0.05)',
+      borderWidth: 2,
+      pointRadius: 4,
+      fill: true,
+      tension: 0.4,
+      yAxisID: 'y1',
+      borderDash: [4, 2],
+    }, {
+      label: 'Coal Power Capacity (GW)',
+      data: [214.69, 280, 340, 380, 400, 420],
+      borderColor: colors.gold,
+      borderWidth: 2,
+      pointRadius: 4,
+      fill: false,
+      tension: 0.4,
+      yAxisID: 'y1',
+      borderDash: [6, 3],
+    }]
+  },
+  options: {
+    responsive: true,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { position: 'top', labels: { boxWidth: 14, font: { size: 9 } } }
+    },
+    scales: {
+      y: {
+        type: 'linear',
+        position: 'left',
+        title: { display: true, text: 'PM2.5 (µg/m³)', font: { size: 9 } },
+        grid: { color: '#E5E7EB' },
+        min: 0, max: 80
+      },
+      y1: {
+        type: 'linear',
+        position: 'right',
+        title: { display: true, text: 'Population (M) / GW', font: { size: 9 } },
+        grid: { drawOnChartArea: false },
+      },
+      x: { grid: { display: false } }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
